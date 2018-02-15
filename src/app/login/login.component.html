@@ -1,0 +1,19 @@
+<form [formGroup]="loginForm" (submit)="onSubmit(loginForm)" novalidate>
+  <label>
+    Username:
+    <input formControlName="username">
+  </label>
+  <div *ngIf="loginForm.controls.username.errors?.required && loginForm.controls.username.touched">
+    You must fill out your username
+  </div>
+  <label>
+    Password:
+    <input formControlName="password">
+  </label>
+  
+  <p>Form value: {{loginForm.value | json}}</p>
+  <p>Form status: {{loginForm.status | json}}</p>
+
+  <button type="submit" [disabled]="loginForm.invalid">Login</button>
+</form>
+
