@@ -12,8 +12,6 @@ import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { PortalComponent } from './portal/portal.component';
-import { BabyListComponent } from './portal/baby-list/baby-list.component';
 
 
 @NgModule({
@@ -26,8 +24,6 @@ import { BabyListComponent } from './portal/baby-list/baby-list.component';
     HomeComponent,
     ContactComponent,
     PageNotFoundComponent,
-    PortalComponent,
-    BabyListComponent,
   ],
   imports: [
     BrowserModule,
