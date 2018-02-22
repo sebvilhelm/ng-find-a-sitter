@@ -10,7 +10,7 @@ const routes: Routes = [
     pathMatch: 'full',
     children: [
       {
-        path: 'baby',
+        path: 'test',
         component: BabyListComponent
       }
     ]

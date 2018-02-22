@@ -14,7 +14,6 @@ import { PortalComponent } from './portal.component';
   declarations: [
     PortalComponent,
     BabyListComponent
-  ],
-  bootstrap: [PortalComponent]
+  ]
 })
 export class PortalModule { }
