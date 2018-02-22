@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -8,7 +9,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
   loginForm = FormGroup.prototype;
-  constructor(private fb: FormBuilder) { 
+  constructor(private fb: FormBuilder, private router: Router) { 
     this.loginForm = this.fb.group({
       username: ['', Validators.required],
       password: ['', Validators.required]
@@ -18,6 +19,9 @@ export class LoginComponent implements OnInit {
   onSubmit(loginForm) {
     if(loginForm.valid) {
       // Send a request
+
+      // Navigate to the home page
+      this.router.navigate(['home']);
     } else {
       // Error handling
     }
