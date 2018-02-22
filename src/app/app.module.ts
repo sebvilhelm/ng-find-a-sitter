@@ -1,3 +1,4 @@
+import { AuthService } from './auth.service';
 import { AuthGuardService } from './auth-guard.service';
 import { PortalModule } from './portal/portal.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -32,7 +33,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     AppRoutingModule,
     ReactiveFormsModule,
   ],
-  providers: [AuthGuardService],
+  providers: [AuthGuardService,AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

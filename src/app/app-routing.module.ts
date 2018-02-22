@@ -20,7 +20,6 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    canActivate: [AuthGuardService],
     component: LoginComponent
   },
   {
@@ -29,6 +28,7 @@ const routes: Routes = [
   },
   {
     path: 'contact',
+    canActivate: [AuthGuardService],
     component: ContactComponent
   },
   {

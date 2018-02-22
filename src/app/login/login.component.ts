@@ -1,3 +1,4 @@
+import { AuthService } from './../auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -8,8 +9,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  loginForm = FormGroup.prototype;
-  constructor(private fb: FormBuilder, private router: Router) { 
+  loginForm: FormGroup;
+  constructor(private fb: FormBuilder, private router: Router, private authService: AuthService) { 
     this.loginForm = this.fb.group({
       username: ['', Validators.required],
       password: ['', Validators.required]
@@ -19,9 +20,11 @@ export class LoginComponent implements OnInit {
   onSubmit(loginForm) {
     if(loginForm.valid) {
       // Send a request
-
-      // Navigate to the home page
-      this.router.navigate(['home']);
+      this.authService.login().subscribe(() => {
+        const url = this.authService.redirectUrl ? this.authService.redirectUrl : 'home';
+        // Navigate to route
+        this.router.navigate([url]);
+      });
     } else {
       // Error handling
     }
