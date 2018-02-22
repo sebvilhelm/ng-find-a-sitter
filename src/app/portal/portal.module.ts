@@ -12,8 +12,8 @@ import { PortalComponent } from './portal.component';
     PortalRoutingModule
   ],
   declarations: [
+    BabyListComponent,
     PortalComponent,
-    BabyListComponent
   ]
 })
 export class PortalModule { }
