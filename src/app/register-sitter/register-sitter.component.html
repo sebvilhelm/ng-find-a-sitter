@@ -9,7 +9,7 @@
   </label>
   <div class="error-message" *ngIf="registerSitterForm.controls.lastName.errors?.required && registerSitterForm.controls.lastName.touched">You must fill out Last name</div>
   <label> Birth date:
-    <input formControlName="birthDate">
+    <input type="date" formControlName="birthDate">
   </label>
   <div class="error-message" *ngIf="registerSitterForm.controls.birthDate.errors?.required && registerSitterForm.controls.birthDate.touched">You must fill out Birth date</div>
   <label> Gender:
