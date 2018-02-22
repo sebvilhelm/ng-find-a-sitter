@@ -8,6 +8,10 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterSitterComponent } from './register-sitter/register-sitter.component';
 import { RegisterBabyComponent } from './register-baby/register-baby.component';
+import { RegisterComponent } from './register/register.component';
+import { HomeComponent } from './home/home.component';
+import { ContactComponent } from './contact/contact.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 @NgModule({
@@ -16,6 +20,10 @@ import { RegisterBabyComponent } from './register-baby/register-baby.component';
     LoginComponent,
     RegisterSitterComponent,
     RegisterBabyComponent,
+    RegisterComponent,
+    HomeComponent,
+    ContactComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
