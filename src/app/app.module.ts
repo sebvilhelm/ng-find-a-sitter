@@ -13,6 +13,7 @@ import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { PortalComponent } from './portal/portal.component';
+import { BabyListComponent } from './portal/baby-list/baby-list.component';
 
 
 @NgModule({
@@ -26,11 +27,12 @@ import { PortalComponent } from './portal/portal.component';
     ContactComponent,
     PageNotFoundComponent,
     PortalComponent,
+    BabyListComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
