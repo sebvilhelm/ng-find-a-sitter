@@ -1,3 +1,4 @@
+import { AuthService } from './auth.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  constructor(private authService: AuthService) {}
   title = 'FindASitter';
+  isLoggedIn = this.authService.isLoggedIn;
 }

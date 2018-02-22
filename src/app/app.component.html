@@ -7,6 +7,10 @@
   <a routerLink="login" routerLinkActive="active">Login</a>
 </nav>
 
+<div *ngIf="isLoggedIn">
+  IMMA AUTH BABY§!!
+</div>
+
 <div style="text-align:center">
   <h1>
     Welcome to {{ title }}!
