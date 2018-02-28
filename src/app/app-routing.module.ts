@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AuthGuardService } from './auth-guard.service';
+import { AdminGuardService } from './admin-guard.service';
+
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
@@ -33,6 +35,7 @@ const routes: Routes = [
   },
   {
     path: 'portal',
+    canActivate: [AdminGuardService],
     loadChildren: './portal/portal.module#PortalModule'
   },
   {

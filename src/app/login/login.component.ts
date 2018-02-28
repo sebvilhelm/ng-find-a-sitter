@@ -13,14 +13,16 @@ export class LoginComponent implements OnInit {
   constructor(private fb: FormBuilder, private router: Router, private authService: AuthService) { 
     this.loginForm = this.fb.group({
       username: ['', Validators.required],
-      password: ['', Validators.required]
+      password: ['', Validators.required],
+      isAdmin: false
     })
   }
 
-  onSubmit(loginForm) {
+  onSubmit(loginForm: FormGroup) {
     if(loginForm.valid) {
+      const userIsAdmin = loginForm.value.isAdmin;
       // Send a request
-      this.authService.login().subscribe(() => {
+      this.authService.login(userIsAdmin).subscribe(() => {
         const url = this.authService.redirectUrl ? this.authService.redirectUrl : 'home';
         // Navigate to route
         this.router.navigate([url]);

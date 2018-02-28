@@ -10,6 +10,9 @@
     Password:
     <input formControlName="password">
   </label>
+  <label> I am an admin!
+    <input type="checkbox" formControlName="isAdmin">
+  </label>
   
   <p>Form value: {{loginForm.value | json}}</p>
   <p>Form status: {{loginForm.status | json}}</p>

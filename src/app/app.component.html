@@ -4,7 +4,8 @@
   <a routerLink="contact" routerLinkActive="active">Contact</a>
   <a routerLink="portal" routerLinkActive="active">Portal</a>
   <a routerLink="register" routerLinkActive="active">Register</a>
-  <a routerLink="login" routerLinkActive="active">Login</a>
+  <a routerLink="login" *ngIf="!this.isLoggedIn" routerLinkActive="active">Login</a>
+  <a  *ngIf="this.isLoggedIn">Log out</a>
 </nav>
 
 <div *ngIf="isLoggedIn">

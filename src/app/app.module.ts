@@ -1,3 +1,4 @@
+import { AdminGuardService } from './admin-guard.service';
 import { AuthService } from './auth.service';
 import { AuthGuardService } from './auth-guard.service';
 import { PortalModule } from './portal/portal.module';
@@ -33,7 +34,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     AppRoutingModule,
     ReactiveFormsModule,
   ],
-  providers: [AuthGuardService,AuthService],
+  providers: [AuthGuardService,AuthService,AdminGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
