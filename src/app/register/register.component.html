@@ -1,3 +1,29 @@
-<p>
-  register works!
-</p>
+<h2>Register form:</h2>
+<form [formGroup]="registerForm" (submit)="onSubmit(registerForm)" novalidate>
+  <label> First name:
+    <input formControlName="firstName">
+  </label>
+  <div class="error-message" *ngIf="registerForm.controls.firstName.errors?.required && registerForm.controls.firstName.touched">You must fill out First name</div>
+  <label> Last name:
+    <input formControlName="lastName">
+  </label>
+  <div class="error-message" *ngIf="registerForm.controls.lastName.errors?.required && registerForm.controls.lastName.touched">You must fill out Last name</div>
+  <label> Birth date:
+    <input type="date" formControlName="birthDate">
+  </label>
+  <div class="error-message" *ngIf="registerForm.controls.birthDate.errors?.required && registerForm.controls.birthDate.touched">You must fill out Birth date</div>
+  <label> Gender:
+    <input formControlName="gender">
+  </label>
+  <div class="error-message" *ngIf="registerForm.controls.gender.errors?.required && registerForm.controls.gender.touched">You must fill out Gender</div>
+  <label> Rate:
+    <input type="number" formControlName="rate">
+  </label>
+  <div class="error-message" *ngIf="registerForm.controls.rate.errors?.required && registerForm.controls.rate.touched">You must fill out Rate</div>
+  <label> Workarea:
+    <input formControlName="area">
+  </label>
+  <div class="error-message" *ngIf="registerForm.controls.area.errors?.required && registerForm.controls.area.touched">You must fill out Workarea</div>
+
+  <input type="submit">
+</form>
