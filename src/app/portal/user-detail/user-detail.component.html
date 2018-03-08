@@ -1,0 +1,19 @@
+<form [formGroup]="editUserForm" (submit)="onSubmit(editUserForm)" novalidate>
+  <label> Username:
+    <input formControlName="userName">
+  </label>
+  <label> First name:
+    <input formControlName="firstName">
+  </label>
+  <label> Last name:
+    <input formControlName="lastName">
+  </label>
+  <label> Date of birth:
+    <input type="date" formControlName="birthDate">
+  </label>
+  <label> Area:
+    <input formControlName="area">
+  </label>
+  <button type="submit">Edit user!</button>
+  <button type="button" (click)="onClickDelete(user.userName)">Delete</button>
+</form>

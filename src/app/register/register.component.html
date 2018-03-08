@@ -1,5 +1,9 @@
 <h2>Register form:</h2>
 <form [formGroup]="registerForm" (submit)="onSubmit(registerForm)" novalidate>
+  <label> Username:
+    <input formControlName="userName">
+  </label>
+  <div class="error-message" *ngIf="registerForm.controls.userName.errors?.required && registerForm.controls.userName.touched">You must fill out First name</div>
   <label> First name:
     <input formControlName="firstName">
   </label>
@@ -20,10 +24,10 @@
     <input type="number" formControlName="rate">
   </label>
   <div class="error-message" *ngIf="registerForm.controls.rate.errors?.required && registerForm.controls.rate.touched">You must fill out Rate</div>
-  <label> Workarea:
+  <label> Area:
     <input formControlName="area">
   </label>
-  <div class="error-message" *ngIf="registerForm.controls.area.errors?.required && registerForm.controls.area.touched">You must fill out Workarea</div>
+  <div class="error-message" *ngIf="registerForm.controls.area.errors?.required && registerForm.controls.area.touched">You must fill out Area</div>
 
   <input type="submit">
 </form>

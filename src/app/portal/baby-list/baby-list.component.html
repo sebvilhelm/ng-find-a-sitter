@@ -1,3 +1,5 @@
-<p>
-  baby-list works!
-</p>
+<ul>
+  <li *ngFor="let baby of babies" (click)="onClick(baby.userName)">
+    {{baby.firstName}}
+  </li>
+</ul>

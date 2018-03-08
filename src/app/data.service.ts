@@ -9,6 +9,7 @@ export class DataService {
   // Use dummy data until we do that
   babies: Baby[] = [
     {
+      userName: 'oliver',
       firstName: 'Oliver',
       lastName: 'Kirschberg',
       birthDate: new Date(2017,5,17),
@@ -16,6 +17,7 @@ export class DataService {
       rating: []
     },
     {
+      userName: 'elin',
       firstName: 'Elin',
       lastName: 'Skuladottir',
       birthDate: new Date(2012,8,18),
@@ -26,6 +28,7 @@ export class DataService {
 
   sitters: Sitter[] = [
     {
+      userName: 'death-metal',
       firstName: 'Christian',
       lastName: 'Kirschberg',
       birthDate: new Date(1979,1,1),
@@ -41,10 +44,38 @@ export class DataService {
 
   public addBaby(baby: Baby) {
     this.babies.push(baby);
+    console.log(this.babies);
   }
   
   public addSitter(sitter: Sitter) {
     this.sitters.push(sitter);
+    console.log(this.sitters);
+  }
+
+  public getBaby(userName: String) {
+    for(let i=0; i<this.babies.length; i++) {
+      if(this.babies[i].userName === userName) {
+        return this.babies[i];
+      }
+    }
+  }
+
+  public updateBaby(userName: String, baby: Baby) {
+    for(let i=0; i<this.babies.length; i++) {
+      if(this.babies[i].userName === userName) {
+        this.babies[i] = baby;
+        return this.babies[i];
+      }
+    }
+  }
+
+  public deleteBaby(userName: String) {
+    for(let i=0; i<this.babies.length; i++) {
+      if(this.babies[i].userName === userName) {
+        this.babies.splice(i,1);
+        return this.babies;
+      }
+    }
   }
 
 }

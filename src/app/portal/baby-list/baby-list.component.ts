@@ -1,4 +1,7 @@
+import { Router } from '@angular/router';
+import { DataService } from './../../data.service';
 import { Component, OnInit } from '@angular/core';
+import { Baby } from '../../entities/baby';
 
 @Component({
   selector: 'app-baby-list',
@@ -7,7 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BabyListComponent implements OnInit {
 
-  constructor() { }
+  private babies: Baby[] = this.data.babies;
+
+  constructor(private data: DataService, private router: Router) { }
+
+  onClick(userName: String) {
+    console.log('clicked on baby',userName);
+    this.router.navigate(['/portal/user-detail',userName])
+  }
 
   ngOnInit() {
   }
