@@ -1,9 +1,10 @@
-<!--The content below is only a placeholder and can be replaced.-->
+
 <nav>
   <a routerLink="home" routerLinkActive="active">Home</a>
   <a routerLink="contact" routerLinkActive="active">Contact</a>
   <a routerLink="portal" routerLinkActive="active">Portal</a>
   <a routerLink="register" routerLinkActive="active">Register</a>
+  <a routerLink="user-list" routerLinkActive="active">User list</a>
   <a routerLink="login" *ngIf="!this.isLoggedIn" routerLinkActive="active">Login</a>
   <a  *ngIf="this.isLoggedIn">Log out</a>
 </nav>

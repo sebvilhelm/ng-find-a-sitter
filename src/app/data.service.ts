@@ -45,20 +45,20 @@ export class DataService {
 
   public addBaby(baby: Baby) {
     this.babies.push(baby);
-    console.log(this.babies);
+    console.log('dataservice',this.babies);
   }
   
   public addSitter(sitter: Sitter) {
     this.sitters.push(sitter);
-    console.log(this.sitters);
   }
 
   public getBaby(userName: String) {
-    for(let i=0; i<this.babies.length; i++) {
+    return this.babies.find(baby => baby.userName === userName);
+    /* for(let i=0; i<this.babies.length; i++) {
       if(this.babies[i].userName === userName) {
         return this.babies[i];
       }
-    }
+    } */
   }
 
   public updateBaby(userName: String, baby: Baby) {
@@ -71,6 +71,7 @@ export class DataService {
   }
 
   public deleteBaby(userName: String) {
+    // return this.babies.find(baby => baby.userName === userName);
     for(let i=0; i<this.babies.length; i++) {
       if(this.babies[i].userName === userName) {
         this.babies.splice(i,1);

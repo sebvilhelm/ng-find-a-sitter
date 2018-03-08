@@ -1,41 +1,41 @@
 <h2>Register form:</h2>
-<form [formGroup]="registerForm" (submit)="onSubmit(registerForm)" novalidate>
+<form [formGroup]="registerForm" (submit)="onSubmit(registerForm)" novalnameate>
   <label> Username:
-    <input formControlName="userName">
+    <input formControlName="userName" name="userName">
   </label>
   <div class="error-message" *ngIf="registerForm.controls.userName.errors?.required && registerForm.controls.userName.touched">You must fill out First name</div>
   <label> First name:
-    <input formControlName="firstName">
+    <input formControlName="firstName" name="firstName">
   </label>
   <div class="error-message" *ngIf="registerForm.controls.firstName.errors?.required && registerForm.controls.firstName.touched">You must fill out First name</div>
   <label> Last name:
-    <input formControlName="lastName">
+    <input formControlName="lastName" name="lastName">
   </label>
   <div class="error-message" *ngIf="registerForm.controls.lastName.errors?.required && registerForm.controls.lastName.touched">You must fill out Last name</div>
   <label> Birth date:
-    <input type="date" formControlName="birthDate">
+    <input type="date" formControlName="birthDate" name="birthDate">
   </label>
   <div class="error-message" *ngIf="registerForm.controls.birthDate.errors?.required && registerForm.controls.birthDate.touched">You must fill out Birth date</div>
   <label> Are you a baby or a sitter?
-    <select formControlName="typeOfUser">
+    <select formControlName="typeOfUser" name="typeOfUser">
       <option value="baby">Baby</option>
       <option value="sitter">Sitter</option>
     </select>
   </label>
   <label> Gender:
-    <input formControlName="gender">
+    <input formControlName="gender" name="gender">
   </label>
   <div class="error-message" *ngIf="registerForm.controls.gender.errors?.required && registerForm.controls.gender.touched">You must fill out Gender</div>
   <label> Rate:
-    <input type="number" formControlName="rate">
+    <input type="number" formControlName="rate" name="rate">
   </label>
   <div class="error-message" *ngIf="registerForm.controls.rate.errors?.required && registerForm.controls.rate.touched">You must fill out Rate</div>
   <label> Area:
-    <input formControlName="area">
+    <input formControlName="area" name="area">
   </label>
   <div class="error-message" *ngIf="registerForm.controls.area.errors?.required && registerForm.controls.area.touched">You must fill out Area</div>
   <label> Check the box, if you are an admin!
-    <input type="checkbox" formControlName="isAdmin">
+    <input type="checkbox" formControlName="isAdmin" name="isAdmin">
   </label>
 
   <input type="submit">

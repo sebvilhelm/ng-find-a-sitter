@@ -20,6 +20,7 @@ export class BabyListComponent implements OnInit {
 
   ngOnInit() {
     this.babies = this.data.babies;
+    console.log('component:', this.data.babies);
   }
 
 }

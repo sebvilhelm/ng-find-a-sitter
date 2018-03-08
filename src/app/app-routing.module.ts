@@ -1,3 +1,4 @@
+import { UserListTestComponent } from './user-list-test/user-list-test.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -29,13 +30,17 @@ const routes: Routes = [
     component: RegisterComponent
   },
   {
+    path: 'user-list',
+    component: UserListTestComponent
+  },
+  {
     path: 'contact',
     canActivate: [AuthGuardService],
     component: ContactComponent
   },
   {
     path: 'portal',
-    canActivate: [AdminGuardService],
+    // canActivate: [AdminGuardService],
     loadChildren: './portal/portal.module#PortalModule'
   },
   {

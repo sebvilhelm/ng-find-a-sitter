@@ -23,7 +23,7 @@ export class RegisterComponent implements OnInit {
         const baby: Baby = form.value as Baby;
         // Send a request
         this.data.addBaby(baby);
-        this.router.navigate(['/portal/baby-list']);
+        this.router.navigate(['/user-list']);
       } else if(form.value.typeOfUser === 'sitter') {
         const sitter: Sitter = form.value as Sitter;
         this.data.addSitter(sitter);
