@@ -10,16 +10,16 @@ import { Baby } from '../../entities/baby';
 })
 export class BabyListComponent implements OnInit {
 
-  private babies: Baby[] = this.data.babies;
+  private babies: Baby[];
 
   constructor(private data: DataService, private router: Router) { }
 
   onClick(userName: String) {
-    console.log('clicked on baby',userName);
     this.router.navigate(['/portal/user-detail',userName])
   }
 
   ngOnInit() {
+    this.babies = this.data.babies;
   }
 
 }
