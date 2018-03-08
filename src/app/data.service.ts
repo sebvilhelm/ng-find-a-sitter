@@ -36,7 +36,8 @@ export class DataService {
       rating: [],
       gender: 'Male',
       rate: 70,
-      workAreas: ['Greater Copenhagen','Sealand']
+      workAreas: ['Greater Copenhagen','Sealand'],
+      isAdmin: false
     }
   ]
 

@@ -1,3 +1,4 @@
+import { AuthService } from './../auth.service';
 import { Router } from '@angular/router';
 import { Sitter } from './../entities/sitter';
 import { DataService } from './../data.service';
@@ -13,19 +14,31 @@ import { Baby } from '../entities/baby';
 export class RegisterComponent implements OnInit {
   private registerForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private data: DataService, private router: Router) {
-    this.registerForm = this.fb.group({
-      userName: ['', Validators.required],
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
-      birthDate: ['', Validators.required],
-      area: ['', Validators.required],
-      gender: ['', Validators.required],
-      rate: [0, Validators.required]
-    });
+  constructor(private fb: FormBuilder, private data: DataService, private router: Router, private authService: AuthService) {
   }
 
   onSubmit(form) {
+    if(form.valid) {
+      if(form.value.typeOfUser === 'baby') {
+        const baby: Baby = form.value as Baby;
+        // Send a request
+        this.data.addBaby(baby);
+        this.router.navigate(['/portal/baby-list']);
+      } else if(form.value.typeOfUser === 'sitter') {
+        const sitter: Sitter = form.value as Sitter;
+        this.data.addSitter(sitter);
+        this.authService.login(form.value.isAdmin).subscribe(() => {
+          this.router.navigate(['/portal']);
+        });
+      }
+
+    } else {
+      // Error handling
+      alert('The form is invalid!');
+    }
+  }
+
+  findAge(form) {
     /* Find current age */
     var dob = form.value.birthDate
     var today = new Date()
@@ -35,18 +48,20 @@ export class RegisterComponent implements OnInit {
     if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
         age--
     }
-    if(form.valid) {
-      const baby: Baby = form.value as Baby;
-      // Send a request
-      this.data.addBaby(baby);
-      this.router.navigate(['/portal/baby-list']);
-
-    } else {
-      // Error handling
-    }
   }
 
   ngOnInit() {
+    this.registerForm = this.fb.group({
+      userName: ['', Validators.required],
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      birthDate: ['', Validators.required],
+      area: ['', Validators.required],
+      gender: ['', Validators.required],
+      rate: [0, Validators.required],
+      typeOfUser: 'baby',
+      isAdmin: false
+    });
   }
 
 }

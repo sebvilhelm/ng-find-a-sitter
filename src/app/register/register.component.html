@@ -16,6 +16,12 @@
     <input type="date" formControlName="birthDate">
   </label>
   <div class="error-message" *ngIf="registerForm.controls.birthDate.errors?.required && registerForm.controls.birthDate.touched">You must fill out Birth date</div>
+  <label> Are you a baby or a sitter?
+    <select formControlName="typeOfUser">
+      <option value="baby">Baby</option>
+      <option value="sitter">Sitter</option>
+    </select>
+  </label>
   <label> Gender:
     <input formControlName="gender">
   </label>
@@ -28,6 +34,9 @@
     <input formControlName="area">
   </label>
   <div class="error-message" *ngIf="registerForm.controls.area.errors?.required && registerForm.controls.area.touched">You must fill out Area</div>
+  <label> Check the box, if you are an admin!
+    <input type="checkbox" formControlName="isAdmin">
+  </label>
 
   <input type="submit">
 </form>
