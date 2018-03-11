@@ -27,7 +27,7 @@ describe('register user', () => {
     
     const numberOfBabiesAfter = await BabyListHelper.getNumberOfUsers();
 
-    expect(numberOfBabiesAfter - numberOfBabiesBefore).toEqual( 1);
+    expect(numberOfBabiesAfter - numberOfBabiesBefore).toEqual(1);
   })
 });
 
