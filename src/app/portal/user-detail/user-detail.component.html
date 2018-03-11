@@ -1,18 +1,18 @@
 <form [formGroup]="editUserForm" (submit)="onSubmit(editUserForm)" novalidate>
   <label> Username:
-    <input formControlName="userName">
+    <input formControlName="userName" name="userName">
   </label>
   <label> First name:
-    <input formControlName="firstName">
+    <input formControlName="firstName" name="firstName">
   </label>
   <label> Last name:
-    <input formControlName="lastName">
+    <input formControlName="lastName" name="lastName">
   </label>
   <label> Date of birth:
-    <input type="date" formControlName="birthDate">
+    <input type="date" formControlName="birthDate" name="birthDate">
   </label>
   <label> Area:
-    <input formControlName="area">
+    <input formControlName="area" name="area">
   </label>
   <button type="submit">Edit user!</button>
   <button type="button" (click)="onClickDelete(user.userName)">Delete</button>

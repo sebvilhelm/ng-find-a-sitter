@@ -53,30 +53,16 @@ export class DataService {
 
   public getBaby(userName: String) {
     return this.babies.find(baby => baby.userName === userName);
-    /* for(let i=0; i<this.babies.length; i++) {
-      if(this.babies[i].userName === userName) {
-        return this.babies[i];
-      }
-    } */
   }
 
   public updateBaby(userName: String, baby: Baby) {
-    for(let i=0; i<this.babies.length; i++) {
-      if(this.babies[i].userName === userName) {
-        this.babies[i] = baby;
-        return this.babies[i];
-      }
-    }
+    const index = this.babies.findIndex(baby => baby.userName === userName);
+    this.babies[index] = baby;
   }
 
   public deleteBaby(userName: String) {
-    // return this.babies.find(baby => baby.userName === userName);
-    for(let i=0; i<this.babies.length; i++) {
-      if(this.babies[i].userName === userName) {
-        this.babies.splice(i,1);
-        return this.babies;
-      }
-    }
+    const index = this.babies.findIndex(baby => baby.userName === userName);
+    this.babies.splice(index, 1);
   }
 
 }

@@ -19,15 +19,17 @@ export class RegisterComponent implements OnInit {
 
   onSubmit(form) {
     if(form.valid) {
-      if(form.value.typeOfUser === 'baby') {
-        const baby: Baby = form.value as Baby;
+      const user = form.value;
+      user.birthDate = new Date(user.birthDate);
+      if(user.typeOfUser === 'baby') {
+        const baby: Baby = user as Baby;
         // Send a request
         this.data.addBaby(baby);
         this.router.navigate(['/baby-list']);
-      } else if(form.value.typeOfUser === 'sitter') {
-        const sitter: Sitter = form.value as Sitter;
+      } else if(user.typeOfUser === 'sitter') {
+        const sitter: Sitter = user as Sitter;
         this.data.addSitter(sitter);
-        this.authService.login(form.value.isAdmin).subscribe(() => {
+        this.authService.login(user.isAdmin).subscribe(() => {
           this.router.navigate(['/portal']);
         });
       }
