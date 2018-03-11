@@ -9,14 +9,14 @@ const routes: Routes = [
     path: '',
     component: PortalComponent,
     children: [
-      {
+      /* {
         path: 'baby-list',
         component: BabyListComponent
       },
       {
         path: 'user-detail/:username',
         component: UserDetailComponent
-      },
+      }, */
     ]
   }
 ];

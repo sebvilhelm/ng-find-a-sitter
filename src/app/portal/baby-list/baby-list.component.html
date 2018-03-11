@@ -1,5 +1,5 @@
 <ul id="babyList">
-  <li *ngFor="let baby of babies" (click)="onClick(baby.userName)">
+  <li *ngFor="let baby of babies" routerLink="/user-detail/{{baby.userName}}">
     {{baby.firstName}}
   </li>
 </ul>

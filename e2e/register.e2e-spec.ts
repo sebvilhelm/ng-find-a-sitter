@@ -9,7 +9,7 @@ describe('register user', () => {
     expect(element(by.css('h2')).getText()).toEqual('Register form:')
   });
   it('should register a baby if the form is valid and submitted', async () => {
-      await browser.get('/user-list');
+      await browser.get('/baby-list');
       const numberOfBabiesBefore = await BabyListHelper.getNumberOfUsers();
       await browser.get('/register');
       element(by.css('[name="userName"]')).sendKeys('fåkboi');

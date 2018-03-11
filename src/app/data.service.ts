@@ -45,7 +45,6 @@ export class DataService {
 
   public addBaby(baby: Baby) {
     this.babies.push(baby);
-    console.log('dataservice',this.babies);
   }
   
   public addSitter(sitter: Sitter) {

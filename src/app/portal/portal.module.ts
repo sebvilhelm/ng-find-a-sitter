@@ -17,9 +17,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule
   ],
   declarations: [
-    BabyListComponent,
+    // BabyListComponent,
     PortalComponent,
-    UserDetailComponent,
+    // UserDetailComponent,
   ],
   providers: [DataService]
 })
