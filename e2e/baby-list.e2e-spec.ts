@@ -12,7 +12,7 @@ describe('update babies', () => {
   });
   it('should update the user info when the form is submitted', async () => {
     element.all(by.css('#babyList li')).get(0).click(); // click the first baby
-    
+
     const promiseArray = [
       element(by.css('[name="userName"]')).clear(),
       element(by.css('[name="firstName"]')).clear(),
