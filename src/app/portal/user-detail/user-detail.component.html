@@ -1,20 +1,30 @@
 <form [formGroup]="editUserForm" (submit)="onSubmit(editUserForm)" novalidate>
   <h2>Edit user:</h2>
-  <label> Username:
-    <input formControlName="userName" name="userName">
-  </label>
-  <label> First name:
-    <input formControlName="firstName" name="firstName">
-  </label>
-  <label> Last name:
-    <input formControlName="lastName" name="lastName">
-  </label>
-  <label> Date of birth:
-    <input type="date" formControlName="birthDate" name="birthDate">
-  </label>
-  <label> Area:
-    <input formControlName="area" name="area">
-  </label>
-  <button type="submit">Edit user!</button>
-  <button type="button" id="btnDeleteUser" (click)="onClickDelete(user.userName)">Delete</button>
+  <div>
+    <mat-form-field>
+      <input matInput placeholder="Username" formControlName="userName" name="userName">
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field>
+      <input matInput placeholder="First name" formControlName="firstName" name="firstName">
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field>
+      <input matInput placeholder="Last name" formControlName="lastName" name="lastName">
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field>
+      <input matInput placeholder="Date of birth" type="date" formControlName="birthDate" name="birthDate">
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field>
+      <input matInput placeholder="Area" formControlName="area" name="area">
+    </mat-form-field>
+  </div>
+  <button mat-button type="submit">Submit</button>
+  <button mat-button color="warn" type="button" id="btnDeleteUser" (click)="onClickDelete(user.userName)">Delete</button>
 </form>
