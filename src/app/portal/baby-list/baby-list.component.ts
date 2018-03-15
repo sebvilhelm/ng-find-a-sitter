@@ -13,13 +13,15 @@ export class BabyListComponent implements OnInit {
 
   constructor(private data: DataService) { }
 
-  onBabyClick(baby) {
-    console.log(baby);
+  deleteBaby(baby: Baby){
+    this.data.deleteBaby(baby.userName);
   }
 
 
   ngOnInit() {
     this.babies = this.data.babies;
   }
+
+  
 
 }

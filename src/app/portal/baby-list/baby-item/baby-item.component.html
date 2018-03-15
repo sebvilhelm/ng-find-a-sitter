@@ -1,3 +1,18 @@
-<li (click)="onClick()">
-  {{baby.firstName}}
+<li>
+  <mat-card>
+    <mat-card-title>
+      {{baby.firstName}} {{baby.lastName}}
+    </mat-card-title>
+    <mat-card-subtitle>
+      Username: {{baby.userName}}
+    </mat-card-subtitle>
+    <mat-card-actions>
+      <button routerLink="/user-detail/{{baby.userName}}" mat-button>
+        Edit
+      </button>
+      <button (click)="deleteBaby()" mat-button color="warn">
+        Delete
+      </button>
+    </mat-card-actions>
+  </mat-card>
 </li>

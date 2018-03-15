@@ -9,12 +9,13 @@ import { Baby } from '../../../entities/baby';
 export class BabyItemComponent implements OnInit {
 
   @Input() baby: Baby;
-  @Output() babyClicked: EventEmitter<any> = new EventEmitter<any>();
+  @Output() babyDeleteClicked: EventEmitter<any> = new EventEmitter<any>();
 
   constructor() { }
 
-  onClick() {
-    this.babyClicked.emit(this.baby);
+
+  deleteBaby(){
+    this.babyDeleteClicked.emit(this.baby);
   }
 
   ngOnInit() {

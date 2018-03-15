@@ -2,6 +2,6 @@
   <app-baby-item
     *ngFor="let baby of babies"
     [baby]="baby"
-    (babyClicked)="onBabyClick($event)"
+    (babyDeleteClicked)="deleteBaby($event)"
   ></app-baby-item>
 </ul>
