@@ -13,6 +13,8 @@ import { MatInputModule } from '@angular/material/input';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatSelectModule} from '@angular/material/select';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -24,6 +26,7 @@ import { ContactComponent } from './contact/contact.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { BabyListComponent } from './portal/baby-list/baby-list.component';
 import { UserDetailComponent } from './portal/user-detail/user-detail.component';
+import { MatNativeDateModule } from '@angular/material/core';
 
 
 @NgModule({
@@ -46,7 +49,10 @@ import { UserDetailComponent } from './portal/user-detail/user-detail.component'
     MatInputModule,
     MatCheckboxModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSelectModule
   ],
   providers: [
     AuthGuardService,

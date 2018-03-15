@@ -1,25 +1,25 @@
 <form [formGroup]="loginForm" (submit)="onSubmit(loginForm)" novalidate>
-  <label>
+  <div>
     <mat-form-field>
       <input matInput placeholder="username" formControlName="username">
       <mat-error *ngIf="loginForm.controls.username.errors?.required && loginForm.controls.username.touched">
         You must fill out your username
       </mat-error>
     </mat-form-field>
-  </label>
-  <label>
+  </div>
+  <div>
     <mat-form-field>
       <input matInput placeholder="password" formControlName="password">
       <mat-error *ngIf="loginForm.controls.username.errors?.required && loginForm.controls.username.touched">
         You must fill out your password
       </mat-error>
     </mat-form-field>
-  </label>
-  <label>
+  </div>
+  <div>
     <mat-checkbox formControlName="isAdmin">
       I am an admin!
     </mat-checkbox>
-  </label>
+  </div>
   
   <p>Form value: {{loginForm.value | json}}</p>
   <p>Form status: {{loginForm.status | json}}</p>
