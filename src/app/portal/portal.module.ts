@@ -20,7 +20,7 @@ import { BabyItemComponent } from './baby-list/baby-item/baby-item.component';
   declarations: [
     // BabyListComponent,
     PortalComponent,
-    BabyItemComponent,
+    // BabyItemComponent,
     // UserDetailComponent,
   ],
   providers: [DataService]

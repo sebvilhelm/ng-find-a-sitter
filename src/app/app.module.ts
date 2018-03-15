@@ -1,3 +1,4 @@
+import { BabyItemComponent } from './portal/baby-list/baby-item/baby-item.component';
 import { DataService } from './data.service';
 import { AdminGuardService } from './admin-guard.service';
 import { AuthService } from './auth.service';
@@ -29,6 +30,7 @@ import { UserDetailComponent } from './portal/user-detail/user-detail.component'
     PageNotFoundComponent,
     BabyListComponent,
     UserDetailComponent,
+    BabyItemComponent
   ],
   imports: [
     BrowserModule,

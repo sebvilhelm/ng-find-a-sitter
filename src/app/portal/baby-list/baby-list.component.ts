@@ -13,6 +13,10 @@ export class BabyListComponent implements OnInit {
 
   constructor(private data: DataService) { }
 
+  onBabyClick(baby) {
+    console.log(baby);
+  }
+
 
   ngOnInit() {
     this.babies = this.data.babies;
