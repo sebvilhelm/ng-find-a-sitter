@@ -3,15 +3,17 @@ import { BabyListHelper } from './helper.e2e-spec';
 
 describe('register user', () => {
   beforeEach(async () => {
-    await browser.get('/register');
+    await browser.get('/register');  // TODO: The page reloads, change to click routing
   });
-  it('should display register form', () => {
+
+  it('should display a register form', () => {
     expect(element(by.css('h2')).getText()).toEqual('Register form:')
   });
+
   it('should register a baby if the form is valid and submitted', async () => {
-    await browser.get('/baby-list');
+    await browser.get('/baby-list');  // TODO: The page reloads, change to click routing
     const numberOfBabiesBefore = await BabyListHelper.getNumberOfUsers();
-    await browser.get('/register');
+    await browser.get('/register'); // TODO: The page reloads, change to click routing
     element(by.css('[name="userName"]')).sendKeys('sebbaby');
     element(by.css('[name="firstName"]')).sendKeys('Sebastian');
     element(by.css('[name="lastName"]')).sendKeys('Nielsen');
