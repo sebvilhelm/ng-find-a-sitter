@@ -1,11 +1,11 @@
 
 <nav>
-  <a routerLink="home" routerLinkActive="active">Home</a>
-  <a routerLink="contact" routerLinkActive="active">Contact</a>
-  <a routerLink="portal" routerLinkActive="active">Portal</a>
-  <a routerLink="register" routerLinkActive="active">Register</a>
-  <a routerLink="baby-list" routerLinkActive="active">Baby list</a>
-  <a routerLink="login" *ngIf="!this.isLoggedIn" routerLinkActive="active">Login</a>
+  <a mat-button routerLink="home" routerLinkActive="active">Home</a>
+  <a mat-button routerLink="contact" routerLinkActive="active">Contact</a>
+  <a mat-button routerLink="portal" routerLinkActive="active">Portal</a>
+  <a mat-button routerLink="register" routerLinkActive="active">Register</a>
+  <a mat-button routerLink="baby-list" routerLinkActive="active">Baby list</a>
+  <a mat-button routerLink="login" *ngIf="!this.isLoggedIn" routerLinkActive="active">Login</a>
   <a  *ngIf="this.isLoggedIn">Log out</a>
 </nav>
 

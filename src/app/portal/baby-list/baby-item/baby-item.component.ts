@@ -13,8 +13,8 @@ export class BabyItemComponent implements OnInit {
 
   constructor() { }
 
-  onClick(baby: Baby) {
-    this.babyClicked.emit(baby);
+  onClick() {
+    this.babyClicked.emit(this.baby);
   }
 
   ngOnInit() {
