@@ -1,22 +1,26 @@
 import { routerReducer } from '@angular-redux/router';
 import { combineReducers } from 'redux';
-import { registerReducer } from './../register/register.reducer';
+import { usersReducer } from './../users.reducer';
+import { Baby } from '../entities/baby';
+import { Sitter } from '../entities/sitter';
 
-export class RegisterState {
+export class UsersState {
 
   isBaby: boolean;
+  babies: Baby[];
+  sitters: Sitter[];
 
 }
 
 export class IAppState {
 
-  register?: RegisterState;
+  users?: UsersState;
 
 }
 
 export const rootReducer = combineReducers<IAppState>({
 
-  register: registerReducer,
+  users: usersReducer,
 
   router: routerReducer
 

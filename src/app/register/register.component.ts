@@ -5,7 +5,7 @@ import { DataService } from './../data.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Baby } from '../entities/baby';
-import { RegisterActions } from './register.actions';
+import { UsersActions } from '../users.actions';
 import { NgRedux } from '@angular-redux/store';
 import { IAppState } from '../store/store';
 
@@ -18,7 +18,7 @@ export class RegisterComponent implements OnInit {
   private registerForm: FormGroup;
   private isBaby: boolean;
 
-  constructor(private fb: FormBuilder, private data: DataService, private router: Router, private authService: AuthService, private registerActions: RegisterActions, private ngRedux: NgRedux<IAppState>) {
+  constructor(private fb: FormBuilder, private data: DataService, private router: Router, private authService: AuthService, private usersActions: UsersActions, private ngRedux: NgRedux<IAppState>) {
   }
 
   onSubmit(form) {
@@ -57,7 +57,7 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.ngRedux.select(state => state.register).subscribe(res => {
+    this.ngRedux.select(state => state.users).subscribe(res => {
       this.isBaby = res.isBaby;
     });
 

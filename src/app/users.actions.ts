@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { NgRedux } from '@angular-redux/store';
-import { IAppState } from '../store/store';
+import { IAppState } from './store/store';
 
 @Injectable()
-export class RegisterActions {
+export class UsersActions {
   constructor(private ngRedux: NgRedux<IAppState>) { }
 
   static SET_TYPE: string = 'SET_TYPE';
@@ -11,7 +11,7 @@ export class RegisterActions {
   setType(isBaby: boolean): void {
     console.log('in action', isBaby);
     this.ngRedux.dispatch({
-      type: RegisterActions.SET_TYPE,
+      type: UsersActions.SET_TYPE,
       payload: isBaby
     });
   }

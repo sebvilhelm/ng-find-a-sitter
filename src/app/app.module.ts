@@ -30,7 +30,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { DevToolsExtension, NgRedux, NgReduxModule } from '@angular-redux/store';
 import { NgReduxRouter, NgReduxRouterModule } from '@angular-redux/router';
 import { IAppState, rootReducer } from './store/store';
-import { RegisterActions } from './register/register.actions';
+import { UsersActions } from './users.actions';
 
 
 @NgModule({
@@ -65,7 +65,7 @@ import { RegisterActions } from './register/register.actions';
     AuthService,
     AdminGuardService,
     DataService,
-    RegisterActions
+    UsersActions
   ],
   bootstrap: [AppComponent]
 })
