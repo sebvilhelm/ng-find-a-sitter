@@ -10,11 +10,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatInputModule } from '@angular/material/input';
-import {MatCheckboxModule} from '@angular/material/checkbox';
-import {MatButtonModule} from '@angular/material/button';
-import {MatCardModule} from '@angular/material/card';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatSelectModule} from '@angular/material/select';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatSelectModule } from '@angular/material/select';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -27,6 +27,10 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { BabyListComponent } from './portal/baby-list/baby-list.component';
 import { UserDetailComponent } from './portal/user-detail/user-detail.component';
 import { MatNativeDateModule } from '@angular/material/core';
+import { DevToolsExtension, NgRedux, NgReduxModule } from '@angular-redux/store';
+import { NgReduxRouter, NgReduxRouterModule } from '@angular-redux/router';
+import { IAppState, rootReducer } from './store/store';
+import { RegisterActions } from './register/register.actions';
 
 
 @NgModule({
@@ -52,14 +56,29 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatCardModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatSelectModule
+    MatSelectModule,
+    NgReduxModule,
+    NgReduxRouterModule.forRoot()
   ],
   providers: [
     AuthGuardService,
     AuthService,
     AdminGuardService,
-    DataService
+    DataService,
+    RegisterActions
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(private ngRedux: NgRedux<IAppState>,
+    private devTool: DevToolsExtension,
+    private ngReduxRouter: NgReduxRouter) {
+
+    this.ngRedux.configureStore(
+      rootReducer, {}
+    );
+
+    ngReduxRouter.initialize(/* args */);
+  }
+
+}

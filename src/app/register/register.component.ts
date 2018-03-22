@@ -5,6 +5,9 @@ import { DataService } from './../data.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Baby } from '../entities/baby';
+import { RegisterActions } from './register.actions';
+import { NgRedux } from '@angular-redux/store';
+import { IAppState } from '../store/store';
 
 @Component({
   selector: 'app-register',
@@ -13,20 +16,21 @@ import { Baby } from '../entities/baby';
 })
 export class RegisterComponent implements OnInit {
   private registerForm: FormGroup;
+  private isBaby: boolean;
 
-  constructor(private fb: FormBuilder, private data: DataService, private router: Router, private authService: AuthService) {
+  constructor(private fb: FormBuilder, private data: DataService, private router: Router, private authService: AuthService, private registerActions: RegisterActions, private ngRedux: NgRedux<IAppState>) {
   }
 
   onSubmit(form) {
-    if(form.valid) {
+    if (form.valid) {
       const user = form.value;
       user.birthDate = new Date(user.birthDate);
-      if(user.typeOfUser === 'baby') {
+      if (user.typeOfUser === 'baby') {
         const baby: Baby = user as Baby;
         // Send a request
         this.data.addBaby(baby);
         this.router.navigate(['/baby-list']);
-      } else if(user.typeOfUser === 'sitter') {
+      } else if (user.typeOfUser === 'sitter') {
         const sitter: Sitter = user as Sitter;
         this.data.addSitter(sitter);
         this.authService.login(user.isAdmin).subscribe(() => {
@@ -48,11 +52,15 @@ export class RegisterComponent implements OnInit {
     var age = today.getFullYear() - birthDate.getFullYear()
     var m = today.getMonth() - birthDate.getMonth()
     if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-        age--
+      age--
     }
   }
 
   ngOnInit() {
+    this.ngRedux.select(state => state.register).subscribe(res => {
+      this.isBaby = res.isBaby;
+    });
+
     this.registerForm = this.fb.group({
       userName: ['', Validators.required],
       firstName: ['', Validators.required],

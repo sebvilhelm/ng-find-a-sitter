@@ -1,5 +1,10 @@
+<button (click)="registerActions.setType(true)">isBaby true</button>
+<button (click)="registerActions.setType(false)">isBaby false</button>
+
+{{isBaby}}
+
 <form [formGroup]="registerForm" (submit)="onSubmit(registerForm)" novalnameate>
-  <h2 class="mat-h2" >Register form:</h2>
+  <h2 class="mat-h2">Register form:</h2>
   <div>
     <mat-form-field>
       <input matInput placeholder="Username" formControlName="userName" name="userName">
@@ -52,7 +57,7 @@
     </mat-form-field>
   </div>
   <div>
-    <mat-checkbox formControlName="isAdmin"name="isAdmin">
+    <mat-checkbox formControlName="isAdmin" name="isAdmin">
       I am an admin!
     </mat-checkbox>
   </div>
