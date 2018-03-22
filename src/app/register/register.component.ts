@@ -17,6 +17,7 @@ import { IAppState } from '../store/store';
 export class RegisterComponent implements OnInit {
   private registerForm: FormGroup;
   private isBaby: boolean;
+  private babies: Baby[];
 
   constructor(private fb: FormBuilder, private data: DataService, private router: Router, private authService: AuthService, private usersActions: UsersActions, private ngRedux: NgRedux<IAppState>) {
   }
@@ -28,14 +29,8 @@ export class RegisterComponent implements OnInit {
       if (user.typeOfUser === 'baby') {
         const baby: Baby = user as Baby;
         // Send a request
-        this.data.addBaby(baby);
-        this.router.navigate(['/baby-list']);
-      } else if (user.typeOfUser === 'sitter') {
-        const sitter: Sitter = user as Sitter;
-        this.data.addSitter(sitter);
-        this.authService.login(user.isAdmin).subscribe(() => {
-          this.router.navigate(['/portal']);
-        });
+        this.usersActions.addBaby(baby);
+        // this.router.navigate(['/baby-list']);
       }
 
     } else {
@@ -59,6 +54,7 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
     this.ngRedux.select(state => state.users).subscribe(res => {
       this.isBaby = res.isBaby;
+      this.babies = res.babies;
     });
 
     this.registerForm = this.fb.group({
