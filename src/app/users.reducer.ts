@@ -22,13 +22,12 @@ export function usersReducer(state: UsersState = INITIAL_STATE, action: any) {
           ]
         });
     case UsersActions.REMOVE_BABY:
-      // BUG: Returns [object OBJECT]
-      const index = state.babies.findIndex(action.payload);
-      console.log(index);
+      const index = state.babies.indexOf(action.payload);
       return tassign(state,
         {
           babies: [
-            ...state.babies.slice(0,index)
+            ...state.babies.slice(0,index),
+            ...state.babies.slice(index+1)
           ]
         });
     default:

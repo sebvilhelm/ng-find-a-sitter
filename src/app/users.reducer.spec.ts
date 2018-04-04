@@ -99,42 +99,6 @@ describe('users reducer', () => {
       payload: babyToAdd
     })).toEqual(stateAfter);    
   });
-  
-  it('ADD_BABY - add a baby when there are already babies', () => {
-    const babyBefore = {
-      userName: 'elin',
-      firstName: 'Elin',
-      lastName: 'Skuladottir',
-      birthDate: new Date(2012,8,18),
-      area: 'Greater Copenhagen',
-      rating: []
-    };
-    const babyToAdd = {
-      userName: 'oliver',
-      firstName: 'Oliver',
-      lastName: 'Kirschberg',
-      birthDate: new Date(2017,5,17),
-      area: 'Greater Copenhagen',
-      rating: []
-    };
-    const stateBefore = {
-      isBaby: undefined,
-      babies: [babyBefore],
-      sitters: []
-    };
-    const stateAfter = {
-      isBaby: undefined,
-      babies: [babyBefore, babyToAdd],
-      sitters: []
-    };
-
-    deepFreeze(stateBefore);
-
-    expect(usersReducer(stateBefore, {
-      type: types.UsersActions.ADD_BABY,
-      payload: babyToAdd
-    })).toEqual(stateAfter);    
-  });
 
   it('REMOVE_BABY - remove baby from the babies array', () => {
     const babyBefore = {
@@ -145,14 +109,22 @@ describe('users reducer', () => {
       area: 'Greater Copenhagen',
       rating: []
     };
+    const babyToRemove = {
+      userName: 'oliver',
+      firstName: 'Oliver',
+      lastName: 'Kirschberg',
+      birthDate: new Date(2017,5,17),
+      area: 'Greater Copenhagen',
+      rating: []
+    };
     const stateBefore = {
       isBaby: undefined,
-      babies: [babyBefore],
+      babies: [babyBefore,babyToRemove],
       sitters: []
     };
     const stateAfter = {
       isBaby: undefined,
-      babies: [],
+      babies: [babyBefore],
       sitters: []
     };
 
@@ -160,8 +132,11 @@ describe('users reducer', () => {
 
     expect(usersReducer(stateBefore, {
       type: types.UsersActions.REMOVE_BABY,
-      payload: babyBefore
+      payload: babyToRemove
     })).toEqual(stateAfter);    
+  });
+
+  it('UPDATE_BABY - update baby in the babies array', () => {
 
   });
 
