@@ -1,6 +1,6 @@
-import { DataService } from './../../data.service';
+import { DataService } from './../data.service';
 import { Component, OnInit } from '@angular/core';
-import { Baby } from '../../entities/baby';
+import { Baby } from '../entities/baby';
 
 @Component({
   selector: 'app-baby-list',

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Baby } from '../../../entities/baby';
+import { Baby } from '../../entities/baby';
 
 @Component({
   selector: 'app-baby-item',
