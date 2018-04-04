@@ -4,7 +4,26 @@ import { tassign } from 'tassign';
 
 const INITIAL_STATE: UsersState = {
   isBaby: undefined,
-  babies: [],
+  babies: [
+    {
+      id: 1,
+      userName: 'oliver',
+      firstName: 'Oliver',
+      lastName: 'Kirschberg',
+      birthDate: new Date(2017,5,17),
+      area: 'Greater Copenhagen',
+      rating: []
+    },
+    {
+      id: 2,
+      userName: 'elin',
+      firstName: 'Elin',
+      lastName: 'Skuladottir',
+      birthDate: new Date(2012,8,18),
+      area: 'Greater Copenhagen',
+      rating: []
+    },
+  ],
   sitters: []
 };
 
