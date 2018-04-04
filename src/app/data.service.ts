@@ -9,6 +9,7 @@ export class DataService {
   // Use dummy data until we do that
   babies: Baby[] = [
     {
+      id: 1,
       userName: 'oliver',
       firstName: 'Oliver',
       lastName: 'Kirschberg',
@@ -17,6 +18,7 @@ export class DataService {
       rating: []
     },
     {
+      id: 2,
       userName: 'elin',
       firstName: 'Elin',
       lastName: 'Skuladottir',
@@ -28,6 +30,7 @@ export class DataService {
 
   sitters: Sitter[] = [
     {
+      id: 3,
       userName: 'death-metal',
       firstName: 'Christian',
       lastName: 'Kirschberg',
