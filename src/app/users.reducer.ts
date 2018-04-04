@@ -6,7 +6,7 @@ const INITIAL_STATE: UsersState = {
   isBaby: undefined,
   babies: [
     {
-      id: 1,
+      id: '1',
       userName: 'oliver',
       firstName: 'Oliver',
       lastName: 'Kirschberg',
@@ -15,7 +15,7 @@ const INITIAL_STATE: UsersState = {
       rating: []
     },
     {
-      id: 2,
+      id: '2',
       userName: 'elin',
       firstName: 'Elin',
       lastName: 'Skuladottir',

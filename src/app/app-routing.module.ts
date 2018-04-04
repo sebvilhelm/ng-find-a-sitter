@@ -35,7 +35,7 @@ const routes: Routes = [
     component: BabyListComponent
   },
   {
-    path: 'user-detail/:username',
+    path: 'user-detail/:id',
     component: UserDetailComponent
   },
   {

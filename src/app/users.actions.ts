@@ -26,14 +26,14 @@ export class UsersActions {
     });
   }
 
-  removeBaby(id: Number): void {
+  removeBaby(id: String): void {
     this.ngRedux.dispatch({
       type: UsersActions.REMOVE_BABY,
       payload: id
     });
   }
 
-  updateBaby(id: Number, baby: Baby): void {
+  updateBaby(id: String, baby: Baby): void {
     this.ngRedux.dispatch({
       type: UsersActions.UPDATE_BABY,
       payload: {id, baby}
