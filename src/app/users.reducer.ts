@@ -10,6 +10,8 @@ const INITIAL_STATE: UsersState = {
 
 export function usersReducer(state: UsersState = INITIAL_STATE, action: any) {
 
+  let index;
+
   switch (action.type) {
     case UsersActions.SET_TYPE:
       return tassign(state, { isBaby: action.payload });
@@ -22,7 +24,7 @@ export function usersReducer(state: UsersState = INITIAL_STATE, action: any) {
           ]
         });
     case UsersActions.REMOVE_BABY:
-      const index = state.babies.indexOf(action.payload);
+      index = state.babies.findIndex(baby => baby.id === action.payload);
       return tassign(state,
         {
           babies: [
@@ -30,6 +32,16 @@ export function usersReducer(state: UsersState = INITIAL_STATE, action: any) {
             ...state.babies.slice(index+1)
           ]
         });
+    case UsersActions.UPDATE_BABY:
+        index = state.babies.findIndex(baby => baby.id === action.payload.id);
+        return tassign(state,
+          {
+            babies: [
+              ...state.babies.slice(0,index),
+              action.payload.baby,
+              ...state.babies.slice(index+1)
+            ]
+          });
     default:
       return state;
   }
