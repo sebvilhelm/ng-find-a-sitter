@@ -1,6 +1,6 @@
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { Baby } from './../../entities/baby';
-import { DataService } from './../../data.service';
+import { Baby } from './../entities/baby';
+import { DataService } from './../data.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 

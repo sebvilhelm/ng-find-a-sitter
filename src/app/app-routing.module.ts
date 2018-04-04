@@ -9,8 +9,8 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { UserDetailComponent } from './portal/user-detail/user-detail.component';
-import { BabyListComponent } from './portal/baby-list/baby-list.component';
+import { UserDetailComponent } from './user-detail/user-detail.component';
+import { BabyListComponent } from './baby-list/baby-list.component';
 
 const routes: Routes = [
   {

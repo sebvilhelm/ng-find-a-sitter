@@ -25,7 +25,7 @@ import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { BabyListComponent } from './baby-list/baby-list.component';
-import { UserDetailComponent } from './portal/user-detail/user-detail.component';
+import { UserDetailComponent } from './user-detail/user-detail.component';
 import { MatNativeDateModule } from '@angular/material/core';
 import { DevToolsExtension, NgRedux, NgReduxModule } from '@angular-redux/store';
 import { NgReduxRouter, NgReduxRouterModule } from '@angular-redux/router';

@@ -1,7 +1,6 @@
 import { AuthService } from './../auth.service';
 import { Router } from '@angular/router';
 import { Sitter } from './../entities/sitter';
-import { DataService } from './../data.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Baby } from '../entities/baby';
@@ -19,7 +18,7 @@ export class RegisterComponent implements OnInit {
   private isBaby: boolean;
   private babies: Baby[];
 
-  constructor(private fb: FormBuilder, private data: DataService, private router: Router, private authService: AuthService, private usersActions: UsersActions, private ngRedux: NgRedux<IAppState>) {
+  constructor(private fb: FormBuilder, private router: Router, private authService: AuthService, private usersActions: UsersActions, private ngRedux: NgRedux<IAppState>) {
   }
 
   onSubmit(form) {
