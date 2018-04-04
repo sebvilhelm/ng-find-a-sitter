@@ -10,6 +10,7 @@ export class UsersActions {
   static SET_TYPE: string = 'SET_TYPE';
   static ADD_BABY: string = 'ADD_BABY';
   static REMOVE_BABY: string = 'REMOVE_BABY';
+  static UPDATE_BABY: string = 'UPDATE_BABY';
 
   setType(isBaby: boolean): void {
     this.ngRedux.dispatch({
@@ -25,10 +26,17 @@ export class UsersActions {
     });
   }
 
-  removeBaby(baby: Baby): void {
+  removeBaby(id: Number): void {
     this.ngRedux.dispatch({
       type: UsersActions.REMOVE_BABY,
-      payload: baby
+      payload: id
+    });
+  }
+
+  updateBaby(id: Number, baby: Baby): void {
+    this.ngRedux.dispatch({
+      type: UsersActions.UPDATE_BABY,
+      payload: {id, baby}
     });
   }
 }
