@@ -1,3 +1,5 @@
+import { Rating } from "./rating";
+
 export class Person {
   public id: String;
   public userName: String;
@@ -5,5 +7,5 @@ export class Person {
   public lastName: String;
   public birthDate: Date;
   public area: String;
-  public rating: Number[];
+  public rating: Rating[];
 }
