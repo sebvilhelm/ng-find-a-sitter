@@ -29,8 +29,9 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
 import { MatNativeDateModule } from '@angular/material/core';
 import { DevToolsExtension, NgRedux, NgReduxModule } from '@angular-redux/store';
 import { NgReduxRouter, NgReduxRouterModule } from '@angular-redux/router';
-import { IAppState, rootReducer } from './store/store';
+import { IAppState, rootReducer, rootState } from './store/store';
 import { UsersActions } from './users.actions';
+import { RatingComponent } from './rating/rating.component';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { UsersActions } from './users.actions';
     PageNotFoundComponent,
     BabyListComponent,
     UserDetailComponent,
-    BabyItemComponent
+    BabyItemComponent,
+    RatingComponent
   ],
   imports: [
     BrowserModule,
@@ -70,12 +72,18 @@ import { UsersActions } from './users.actions';
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  constructor(private ngRedux: NgRedux<IAppState>,
+  constructor(
+    private ngRedux: NgRedux<IAppState>,
     private devTool: DevToolsExtension,
-    private ngReduxRouter: NgReduxRouter) {
-
+    private ngReduxRouter: NgReduxRouter
+  ) {
+    let enhancers = [devTool.enhancer() ];  
+    
     this.ngRedux.configureStore(
-      rootReducer, {}
+      rootReducer,
+      rootState,
+      [],
+      enhancers
     );
 
     ngReduxRouter.initialize(/* args */);
