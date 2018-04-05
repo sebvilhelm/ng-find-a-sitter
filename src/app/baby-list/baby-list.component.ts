@@ -3,6 +3,7 @@ import { Baby } from '../entities/baby';
 import { UsersActions } from '../users.actions';
 import { NgRedux } from '@angular-redux/store';
 import { IAppState } from '../store/store';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-baby-list',
@@ -12,7 +13,7 @@ import { IAppState } from '../store/store';
 export class BabyListComponent implements OnInit, OnDestroy {
 
   private babies: Baby[];
-  private subscription;
+  private subscription: Subscription;
 
   constructor(private usersActions: UsersActions, private ngRedux: NgRedux<IAppState>) { }
 
@@ -22,9 +23,7 @@ export class BabyListComponent implements OnInit, OnDestroy {
 
 
   ngOnInit() {
-    // this.babies = this.data.babies;
     this.subscription = this.ngRedux.select(state => state.users).subscribe(res => {
-      console.log(res);
       this.babies = res.babies;
     });
   }
