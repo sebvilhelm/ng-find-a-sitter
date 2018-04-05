@@ -1,10 +1,12 @@
-import { Subscription } from 'rxjs/Subscription';
-import { IAppState } from './../store/store';
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { IAppState } from './../store/store';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Baby } from './../entities/baby';
 import { NgRedux } from '@angular-redux/store';
 import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs/Subscription';
+import { UsersActions } from '../users.actions';
+import { Rating } from '../entities/rating';
 
 @Component({
   selector: 'app-rating',
@@ -18,21 +20,27 @@ export class RatingComponent implements OnInit, OnDestroy {
   private baby: Baby;
   private subscription: Subscription;
 
-  constructor(private fb: FormBuilder, private ngRedux: NgRedux<IAppState>, private route: ActivatedRoute) { }
+  constructor(private fb: FormBuilder, private ngRedux: NgRedux<IAppState>, private usersActions: UsersActions, private route: ActivatedRoute) { }
 
   onSubmit(ratingForm: FormGroup) {
-    const { value } = ratingForm;
-    console.log(value);
+    const { value, valid } = ratingForm;
+    if(valid) {
+      const rating: Rating = value as Rating ;
+      this.usersActions.addRating(this.baby.id, rating);
+    } else {
+      alert('Invalid rating!');
+    }
   }
 
   ngOnInit() {
     this.ratingForm = this.fb.group({
       rating: [null, Validators.required],
-      comment: ['']
+      comment: ['', Validators.required]
     });
 
     this.subscription = this.ngRedux.select(state => state.users.babies).subscribe(res => {
       this.baby = res.find(baby => baby.id === this.route.snapshot.params.id);
+      console.log(this.baby);
     })
 
   }

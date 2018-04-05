@@ -29,7 +29,7 @@ export class RegisterComponent implements OnInit {
         const baby: Baby = user as Baby;
         // Send a request
         this.usersActions.addBaby(baby);
-        // this.router.navigate(['/baby-list']);
+        this.router.navigate(['/baby-list']);
       }
 
     } else {
