@@ -11,11 +11,6 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   constructor(private fb: FormBuilder, private router: Router, private authService: AuthService) { 
-    this.loginForm = this.fb.group({
-      username: ['', Validators.required],
-      password: ['', Validators.required],
-      isAdmin: false
-    })
   }
 
   onSubmit(loginForm: FormGroup) {
@@ -33,6 +28,11 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.loginForm = this.fb.group({
+      username: ['', Validators.required],
+      password: ['', Validators.required],
+      isAdmin: false
+    });
   }
 
 }

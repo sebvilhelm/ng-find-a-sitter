@@ -1,3 +1,4 @@
+import { Rating } from './entities/rating';
 import { usersReducer } from './users.reducer';
 import * as types from './users.actions';
 import { Baby } from './entities/baby';
@@ -185,8 +186,50 @@ describe('users reducer', () => {
 
     expect(usersReducer(stateBefore, {
       type: types.UsersActions.UPDATE_BABY,
-      payload: {id: 2, baby: babyAfter}
+      payload: {id: '2', baby: babyAfter}
     })).toEqual(stateAfter);
   });
+
+  it('Should add a rating', () => {
+    const rating: Rating = {
+      rating: 3,
+      comment: 'Nice baby 💝'
+    };
+    const babyBefore: Baby = {
+      id: '1',
+      userName: 'oliver',
+      firstName: 'Oliver',
+      lastName: 'Kirschberg',
+      birthDate: new Date(2017,5,17),
+      area: 'Greater Copenhagen',
+      rating: []
+    };
+    const babyAfter: Baby = {
+      id: '1',
+      userName: 'oliver',
+      firstName: 'Oliver',
+      lastName: 'Kirschberg',
+      birthDate: new Date(2017,5,17),
+      area: 'Greater Copenhagen',
+      rating: [rating]
+    };
+    const stateBefore = {
+      isBaby: undefined,
+      babies: [babyBefore],
+      sitters: []
+    };
+    const stateAfter = {
+      isBaby: undefined,
+      babies: [babyAfter],
+      sitters: []
+    };
+
+    deepFreeze(stateBefore);
+
+    expect(usersReducer(stateBefore, {
+      type: types.UsersActions.ADD_RATING,
+      payload: {id:'1', rating}
+    })).toEqual(stateAfter);
+  })
 
 });

@@ -11,6 +11,7 @@ import { ContactComponent } from './contact/contact.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { BabyListComponent } from './baby-list/baby-list.component';
+import { RatingComponent } from './rating/rating.component';
 
 const routes: Routes = [
   {
@@ -33,6 +34,10 @@ const routes: Routes = [
   {
     path: 'baby-list',
     component: BabyListComponent
+  },
+  {
+    path: 'rate/:id',
+    component: RatingComponent
   },
   {
     path: 'user-detail/:id',

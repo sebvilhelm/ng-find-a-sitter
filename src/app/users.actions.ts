@@ -1,3 +1,4 @@
+import { Rating } from './entities/rating';
 import { Injectable } from '@angular/core';
 import { NgRedux } from '@angular-redux/store';
 import { IAppState } from './store/store';
@@ -11,6 +12,7 @@ export class UsersActions {
   static ADD_BABY: string = 'ADD_BABY';
   static REMOVE_BABY: string = 'REMOVE_BABY';
   static UPDATE_BABY: string = 'UPDATE_BABY';
+  static ADD_RATING: string = 'ADD_RATING';
 
   setType(isBaby: boolean): void {
     this.ngRedux.dispatch({
@@ -37,6 +39,13 @@ export class UsersActions {
     this.ngRedux.dispatch({
       type: UsersActions.UPDATE_BABY,
       payload: {id, baby}
+    });
+  }
+
+  addRating(id: String, rating: Rating): void {
+    this.ngRedux.dispatch({
+      type: UsersActions.ADD_RATING,
+      payload: { id, rating }
     });
   }
 }

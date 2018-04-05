@@ -15,6 +15,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSelectModule } from '@angular/material/select';
+import {MatRadioModule} from '@angular/material/radio';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -59,6 +60,7 @@ import { RatingComponent } from './rating/rating.component';
     MatDatepickerModule,
     MatNativeDateModule,
     MatSelectModule,
+    MatRadioModule,
     NgReduxModule,
     NgReduxRouterModule.forRoot()
   ],

@@ -1,3 +1,10 @@
-<p>
-  rating works!
-</p>
+<form [formGroup]="ratingForm" (submit)="onSubmit(ratingForm)">
+  <h2>Rate the {{baby.firstName}} {{baby.lastName}}</h2>
+  <mat-radio-group formControlName="rating">
+    <mat-radio-button class="radio-button" *ngFor="let ratingValue of ratingValues" [value]="ratingValue">{{ratingValue}}</mat-radio-button>
+  </mat-radio-group>
+  <mat-form-field>
+    <textarea formControlName="comment" matInput placeholder="comment"></textarea>
+  </mat-form-field>
+  <button mat-button>Submit</button>
+</form>
