@@ -46,7 +46,15 @@ export function usersReducer(state: UsersState = INITIAL_STATE, action: any) {
           ]
         });
     case UsersActions.ADD_RATING:
-      return state;
+      index = state.babies.findIndex(baby => baby.id === action.payload.id);
+      const baby = state.babies[index];
+      return tassign(state, {
+        babies: [
+          ...state.babies.slice(0, index),
+          tassign(baby, { rating: [...baby.rating, action.payload.rating] }),
+          ...state.babies.slice(index+1)
+        ]
+      });
     default:
       return state;
   }
