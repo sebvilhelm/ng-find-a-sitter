@@ -1,3 +1,4 @@
+import { UsersService } from './users.service';
 import { BabyItemComponent } from './baby-list/baby-item/baby-item.component';
 import { DataService } from './data.service';
 import { AdminGuardService } from './admin-guard.service';
@@ -33,6 +34,7 @@ import { NgReduxRouter, NgReduxRouterModule } from '@angular-redux/router';
 import { IAppState, rootReducer, rootState } from './store/store';
 import { UsersActions } from './users.actions';
 import { RatingComponent } from './rating/rating.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -62,14 +64,16 @@ import { RatingComponent } from './rating/rating.component';
     MatSelectModule,
     MatRadioModule,
     NgReduxModule,
-    NgReduxRouterModule.forRoot()
+    NgReduxRouterModule.forRoot(),
+    HttpClientModule,
   ],
   providers: [
     AuthGuardService,
     AuthService,
     AdminGuardService,
     DataService,
-    UsersActions
+    UsersActions,
+    UsersService,
   ],
   bootstrap: [AppComponent]
 })
