@@ -1,0 +1,46 @@
+import { Injectable } from '@angular/core';
+import { UsersService } from './users.service';
+import { ActionsObservable } from "redux-observable";
+import { UsersActions } from "./users.actions";
+import { Observable } from "rxjs/Observable";
+import 'rxjs/add/observable/of';
+import 'rxjs/add/operator/mergeMap';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+import { Baby } from './entities/baby';
+
+@Injectable()
+export class UsersEpic {
+  constructor(private usersService: UsersService) {}
+
+  getUsers = (action$: ActionsObservable<any>) => {
+    return action$.ofType(UsersActions.GET_USERS) // Listen for this action
+      .mergeMap(({payload}) => { // payload
+          return this.usersService.getUsers()
+            .map((result: any[]) => ({ // when web service responds with success, call this action with payload that came back from webservice
+              type: UsersActions.RECEIVED_USERS,
+              payload: result.filter(item => item.customerId === 'Seb')
+            }))
+            .catch(error => Observable.of({ // when web service responds with failure, call this action with payload that came back from webservice
+              type: UsersActions.FAILED_RECEIVED_USERS,
+              payload: error
+          }));
+    });
+  }
+
+  addBaby = (action$: ActionsObservable<any>) => {
+    return action$.ofType(UsersActions.ADD_BABY_TO_WS)
+      .mergeMap(({payload}) => {
+        return this.usersService.createBaby(payload)
+          .map((result: Baby) => ({
+            type: UsersActions.ADD_BABY,
+            payload: result
+          }))
+          .catch(error => Observable.of({
+            type: UsersActions.FAILED_ADD_BABY_TO_WS,
+            payload: error
+          }))
+      })
+
+  }
+}

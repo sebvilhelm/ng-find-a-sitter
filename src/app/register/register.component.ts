@@ -28,12 +28,8 @@ export class RegisterComponent implements OnInit {
       user.birthDate = new Date(user.birthDate);
       if (user.typeOfUser === 'baby') {
         const baby: Baby = user as Baby;
-        // Send a request
-        // this.usersActions.addBaby(baby);
-        this.usersService.createBaby(baby).subscribe(res => {
-          console.log(res);
-          this.router.navigate(['/baby-list']);
-        })
+        this.usersActions.addBaby(baby);
+        this.router.navigate(['/baby-list']);
       }
 
     } else {

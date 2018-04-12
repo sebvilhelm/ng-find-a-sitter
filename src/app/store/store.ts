@@ -5,7 +5,6 @@ import { Baby } from '../entities/baby';
 import { Sitter } from '../entities/sitter';
 
 export class UsersState {
-
   isBaby: boolean;
   babies: Baby[];
   sitters: Sitter[];

@@ -36,6 +36,9 @@ import { UsersActions } from './users.actions';
 import { RatingComponent } from './rating/rating.component';
 import { HttpClientModule } from '@angular/common/http';
 
+import { createEpicMiddleware, combineEpics } from "redux-observable";
+import { createLogger } from 'redux-logger';
+import { UsersEpic } from './users.epic';
 
 @NgModule({
   declarations: [
@@ -74,6 +77,7 @@ import { HttpClientModule } from '@angular/common/http';
     DataService,
     UsersActions,
     UsersService,
+    UsersEpic
   ],
   bootstrap: [AppComponent]
 })
@@ -81,14 +85,23 @@ export class AppModule {
   constructor(
     private ngRedux: NgRedux<IAppState>,
     private devTool: DevToolsExtension,
-    private ngReduxRouter: NgReduxRouter
+    private ngReduxRouter: NgReduxRouter,
+    private usersEpic: UsersEpic
   ) {
+    const rootEpic = combineEpics(
+      // Each epic is referenced here.
+      this.usersEpic.getUsers,
+      this.usersEpic.addBaby,
+    );
+
     let enhancers = [devTool.enhancer() ];  
-    
+    const middleware = [
+      createEpicMiddleware(rootEpic), createLogger({ level: 'info', collapsed: true })
+    ];
     this.ngRedux.configureStore(
       rootReducer,
-      rootState,
-      [],
+      {},
+      middleware,
       enhancers
     );
 

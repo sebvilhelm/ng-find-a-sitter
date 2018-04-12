@@ -24,18 +24,14 @@ export class BabyListComponent implements OnInit, OnDestroy {
 
 
   ngOnInit() {
+    this.usersActions.getUsers();
     this.subscription = this.ngRedux.select(state => state.users).subscribe(res => {
       this.babies = res.babies;
-    });
-    this.usersService.getUsers().subscribe((res: any[]) => {
-      const items = res.filter(item => item.customerId === 'Seb');
-      console.log(items);
     });
   }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
-    
   }
   
 

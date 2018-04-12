@@ -4,26 +4,7 @@ import { tassign } from 'tassign';
 
 const INITIAL_STATE: UsersState = {
   isBaby: undefined,
-  babies: [
-    {
-      id: '1',
-      userName: 'oliver',
-      firstName: 'Oliver',
-      lastName: 'Kirschberg',
-      birthDate: new Date(2017,5,17),
-      area: 'Greater Copenhagen',
-      rating: []
-    },
-    {
-      id: '2',
-      userName: 'elin',
-      firstName: 'Elin',
-      lastName: 'Skuladottir',
-      birthDate: new Date(2012,8,18),
-      area: 'Greater Copenhagen',
-      rating: []
-    },
-  ],
+  babies: [],
   sitters: []
 };
 
@@ -32,6 +13,16 @@ export function usersReducer(state: UsersState = INITIAL_STATE, action: any) {
   let index;
 
   switch (action.type) {
+    case UsersActions.GET_USERS:
+      return state; // Set a loading state, maybe?
+    case UsersActions.FAILED_RECEIVED_USERS:
+      return state; // Handle error
+    case UsersActions.RECEIVED_USERS:
+      return tassign(state, {babies: action.payload});
+    case UsersActions.ADD_BABY_TO_WS:
+      return state; // Set a loading state, maybe?
+    case UsersActions.FAILED_ADD_BABY_TO_WS:
+      return state; // Handle error
     case UsersActions.SET_TYPE:
       return tassign(state, { isBaby: action.payload });
     case UsersActions.ADD_BABY:
