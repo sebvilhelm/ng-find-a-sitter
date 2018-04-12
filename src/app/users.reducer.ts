@@ -65,10 +65,11 @@ export function usersReducer(state: UsersState = INITIAL_STATE, action: any) {
     case UsersActions.ADD_RATING:
       index = state.babies.findIndex(baby => baby.id === action.payload.id);
       const baby = state.babies[index];
+      const babyCopy = tassign(baby, { rating: [...baby.rating, action.payload.rating] });
       return tassign(state, {
         babies: [
           ...state.babies.slice(0, index),
-          tassign(baby, { rating: [...baby.rating, action.payload.rating] }),
+          babyCopy,
           ...state.babies.slice(index+1)
         ]
       });
