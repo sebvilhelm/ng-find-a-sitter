@@ -1,3 +1,4 @@
+import { UsersService } from './../users.service';
 import { AuthService } from './../auth.service';
 import { Router } from '@angular/router';
 import { Sitter } from './../entities/sitter';
@@ -18,7 +19,7 @@ export class RegisterComponent implements OnInit {
   private isBaby: boolean;
   private babies: Baby[];
 
-  constructor(private fb: FormBuilder, private router: Router, private authService: AuthService, private usersActions: UsersActions, private ngRedux: NgRedux<IAppState>) {
+  constructor(private fb: FormBuilder, private router: Router, private authService: AuthService, private usersActions: UsersActions, private ngRedux: NgRedux<IAppState>, private usersService: UsersService) {
   }
 
   onSubmit(form) {
@@ -28,8 +29,11 @@ export class RegisterComponent implements OnInit {
       if (user.typeOfUser === 'baby') {
         const baby: Baby = user as Baby;
         // Send a request
-        this.usersActions.addBaby(baby);
-        this.router.navigate(['/baby-list']);
+        // this.usersActions.addBaby(baby);
+        this.usersService.createBaby(baby).subscribe(res => {
+          console.log(res);
+          this.router.navigate(['/baby-list']);
+        })
       }
 
     } else {
