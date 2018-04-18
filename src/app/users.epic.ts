@@ -8,10 +8,11 @@ import 'rxjs/add/operator/mergeMap';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { Baby } from './entities/baby';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class UsersEpic {
-  constructor(private usersService: UsersService) {}
+  constructor(private usersService: UsersService, private router: Router) {}
 
   getUsers = (action$: ActionsObservable<any>) => {
     return action$.ofType(UsersActions.GET_USERS) // Listen for this action
@@ -32,10 +33,12 @@ export class UsersEpic {
     return action$.ofType(UsersActions.ADD_BABY_TO_WS)
       .mergeMap(({payload}) => {
         return this.usersService.createBaby(payload)
-          .map((result: Baby) => ({
+          .map((result: Baby) =>{
+            this.router.navigate(['/baby-list']);
+            return ({
             type: UsersActions.ADD_BABY,
             payload: result
-          }))
+          })})
           .catch(error => Observable.of({
             type: UsersActions.FAILED_ADD_BABY_TO_WS,
             payload: error
@@ -43,4 +46,8 @@ export class UsersEpic {
       })
 
   }
+
+  // TODO: Remove baby
+
+  // TODO: Update baby
 }

@@ -29,7 +29,6 @@ export class RegisterComponent implements OnInit {
       if (user.typeOfUser === 'baby') {
         const baby: Baby = user as Baby;
         this.usersActions.addBaby(baby);
-        this.router.navigate(['/baby-list']);
       }
 
     } else {
