@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
 import { AuthGuardService } from './auth-guard.service';
 import { AdminGuardService } from './admin-guard.service';
@@ -50,7 +50,6 @@ const routes: Routes = [
   },
   {
     path: 'portal',
-    // canActivate: [AdminGuardService],
     loadChildren: './portal/portal.module#PortalModule'
   },
   {
@@ -60,7 +59,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {preloadingStrategy: PreloadAllModules})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

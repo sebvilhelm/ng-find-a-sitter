@@ -3,19 +3,19 @@
   <div>
     <mat-form-field>
       <input matInput placeholder="Username" formControlName="userName" name="userName">
-      <mat-error class="error-message" *ngIf="registerForm.controls.userName.errors?.required && registerForm.controls.userName.touched">You must fill out First name</mat-error>
+      <mat-error class="error-message" *ngIf="editUserForm.controls.userName.errors?.required && editUserForm.controls.userName.touched">You must fill out First name</mat-error>
     </mat-form-field>
   </div>
   <div>
     <mat-form-field>
       <input matInput placeholder="First Name" formControlName="firstName" name="firstName">
-      <mat-error class="error-message" *ngIf="registerForm.controls.firstName.errors?.required && registerForm.controls.firstName.touched">You must fill out First name</mat-error>
+      <mat-error class="error-message" *ngIf="editUserForm.controls.firstName.errors?.required && editUserForm.controls.firstName.touched">You must fill out First name</mat-error>
     </mat-form-field>
   </div>
   <div>
     <mat-form-field>
       <input matInput placeholder="Last name" formControlName="lastName" name="lastName">
-      <mat-error class="error-message" *ngIf="registerForm.controls.lastName.errors?.required && registerForm.controls.lastName.touched">You must fill out Last name</mat-error>
+      <mat-error class="error-message" *ngIf="editUserForm.controls.lastName.errors?.required && editUserForm.controls.lastName.touched">You must fill out Last name</mat-error>
     </mat-form-field>
   </div>
   <div>
@@ -23,7 +23,7 @@
       <input matInput formControlName="birthDate" name="birthDate" [matDatepicker]="picker" placeholder="Choose a date of birth">
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
-      <mat-error class="error-message" *ngIf="registerForm.controls.birthDate.errors?.required && registerForm.controls.birthDate.touched">You must fill out Birth date</mat-error>
+      <mat-error class="error-message" *ngIf="editUserForm.controls.birthDate.errors?.required && editUserForm.controls.birthDate.touched">You must fill out Birth date</mat-error>
     </mat-form-field>
   </div>
   <div>
@@ -35,20 +35,20 @@
   <!-- <div>
     <mat-form-field>
       <input matInput placeholder="Gender" formControlName="gender" name="gender">
-      <mat-error class="error-message" *ngIf="registerForm.controls.gender.errors?.required && registerForm.controls.gender.touched">You must fill out Gender</mat-error>
+      <mat-error class="error-message" *ngIf="editUserForm.controls.gender.errors?.required && editUserForm.controls.gender.touched">You must fill out Gender</mat-error>
     </mat-form-field>
   </div>
   <div>
     <mat-form-field>
       <input matInput placeholder="Rate" type="number" formControlName="rate" name="rate">
-      <mat-error class="error-message" *ngIf="registerForm.controls.rate.errors?.required && registerForm.controls.rate.touched">You must fill out Rate</mat-error>
+      <mat-error class="error-message" *ngIf="editUserForm.controls.rate.errors?.required && editUserForm.controls.rate.touched">You must fill out Rate</mat-error>
     </mat-form-field>
   </div>
 
   <div>
     <mat-form-field>
       <input matInput placeholder="Area" formControlName="area" name="area">
-      <mat-error class="error-message" *ngIf="registerForm.controls.area.errors?.required && registerForm.controls.area.touched">You must fill out Area</mat-error>
+      <mat-error class="error-message" *ngIf="editUserForm.controls.area.errors?.required && editUserForm.controls.area.touched">You must fill out Area</mat-error>
     </mat-form-field>
   </div>
   <div>
@@ -57,5 +57,5 @@
     </mat-checkbox>
   </div> -->
   <button mat-button type="submit">Submit</button>
-  <button mat-button color="warn" type="button" id="btnDeleteUser" (click)="onClickDelete(user.userName)">Delete</button>
+  <!-- <button mat-button color="warn" type="button" id="btnDeleteUser" (click)="onClickDelete(user.userName)">Delete</button> -->
 </form>

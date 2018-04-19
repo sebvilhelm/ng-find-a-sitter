@@ -4,7 +4,6 @@ import { DataService } from './data.service';
 import { AdminGuardService } from './admin-guard.service';
 import { AuthService } from './auth.service';
 import { AuthGuardService } from './auth-guard.service';
-import { PortalModule } from './portal/portal.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';

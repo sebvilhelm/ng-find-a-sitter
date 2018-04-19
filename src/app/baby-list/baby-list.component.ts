@@ -13,8 +13,8 @@ import { Subscription } from 'rxjs/Subscription';
 })
 export class BabyListComponent implements OnInit, OnDestroy {
 
-  private babies: Baby[];
-  private subscription: Subscription;
+  babies: Baby[];
+  subscription: Subscription;
 
   constructor(private usersActions: UsersActions, private ngRedux: NgRedux<IAppState>, private usersService:UsersService) { }
 

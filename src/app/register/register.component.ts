@@ -15,11 +15,12 @@ import { IAppState } from '../store/store';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-  private registerForm: FormGroup;
-  private isBaby: boolean;
-  private babies: Baby[];
+  registerForm: FormGroup;
+  isBaby: boolean;
+  babies: Baby[];
+  usersActions: UsersActions
 
-  constructor(private fb: FormBuilder, private router: Router, private authService: AuthService, private usersActions: UsersActions, private ngRedux: NgRedux<IAppState>, private usersService: UsersService) {
+  constructor(private fb: FormBuilder, private router: Router, private authService: AuthService, private ngRedux: NgRedux<IAppState>, private usersService: UsersService) {
   }
 
   onSubmit(form) {

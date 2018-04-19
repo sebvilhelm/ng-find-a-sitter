@@ -15,10 +15,10 @@ import { Rating } from '../entities/rating';
 })
 export class RatingComponent implements OnInit, OnDestroy {
 
-  private ratingForm: FormGroup;
-  private ratingValues: Number[] = [1,2,3,4,5];
-  private baby: Baby;
-  private subscription: Subscription;
+  ratingForm: FormGroup;
+  ratingValues: Number[] = [1,2,3,4,5];
+  baby: Baby;
+  subscription: Subscription;
 
   constructor(private fb: FormBuilder, private ngRedux: NgRedux<IAppState>, private usersActions: UsersActions, private route: ActivatedRoute) { }
 

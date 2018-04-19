@@ -14,9 +14,9 @@ import { tassign } from 'tassign';
 })
 export class UserDetailComponent implements OnInit, OnDestroy {
 
-  private user: Baby;
-  private editUserForm: FormGroup;
-  private subscription;
+  user: Baby;
+  editUserForm: FormGroup;
+  subscription;
 
   constructor(private route: ActivatedRoute, private fb: FormBuilder, private router: Router, private usersActions: UsersActions, private ngRedux: NgRedux<IAppState>) {  }
 
