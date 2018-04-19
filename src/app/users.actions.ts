@@ -18,6 +18,8 @@ export class UsersActions {
   static ADD_RATING: string = 'ADD_RATING';
   static ADD_BABY_TO_WS: string = 'ADD_BABY_TO_WS';
   static FAILED_ADD_BABY_TO_WS: string = 'FAILED_ADD_BABY_TO_WS';
+  static REMOVE_BABY_FROM_WS: string = 'REMOVE_BABY_FROM_WS';
+  static FAILED_REMOVE_BABY_FROM_WS: string = 'FAILED_REMOVE_BABY_FROM_WS';
 
   setType(isBaby: boolean): void {
     this.ngRedux.dispatch({
@@ -39,10 +41,10 @@ export class UsersActions {
     });
   }
 
-  removeBaby(id: String): void {
+  removeBaby(baby: Baby): void {
     this.ngRedux.dispatch({
-      type: UsersActions.REMOVE_BABY,
-      payload: id
+      type: UsersActions.REMOVE_BABY_FROM_WS,
+      payload: baby
     });
   }
 

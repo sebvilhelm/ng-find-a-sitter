@@ -17,11 +17,11 @@ export class UsersService {
   }
   
   updateBaby(baby: Baby) {
-    return this.http.put(`http://angular2api2.azurewebsites.net/api/internships/${baby._id}`, baby);
+    return this.http.put(`http://angular2api2.azurewebsites.net/api/internships/${baby._id}`, {responseType: 'text'});
   }
   
   deleteBaby(baby: Baby) {
-    return this.http.delete(`http://angular2api2.azurewebsites.net/api/internships/${baby._id}`);
+    return this.http.delete(`http://angular2api2.azurewebsites.net/api/internships/${baby._id}`,{responseType: 'text'});
   }
 
 }

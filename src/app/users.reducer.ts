@@ -23,6 +23,10 @@ export function usersReducer(state: UsersState = INITIAL_STATE, action: any) {
       return state; // Set a loading state, maybe?
     case UsersActions.FAILED_ADD_BABY_TO_WS:
       return state; // Handle error
+    case UsersActions.REMOVE_BABY_FROM_WS:
+      return state; // Set a loading state, maybe?
+    case UsersActions.FAILED_REMOVE_BABY_FROM_WS:
+      return state; // Handle error
     case UsersActions.SET_TYPE:
       return tassign(state, { isBaby: action.payload });
     case UsersActions.ADD_BABY:
@@ -34,7 +38,7 @@ export function usersReducer(state: UsersState = INITIAL_STATE, action: any) {
           ]
         });
     case UsersActions.REMOVE_BABY:
-      index = state.babies.findIndex(baby => baby.id === action.payload);
+      index = state.babies.findIndex(baby => baby._id === action.payload);
       return tassign(state,
         {
           babies: [
@@ -43,7 +47,7 @@ export function usersReducer(state: UsersState = INITIAL_STATE, action: any) {
           ]
         });
     case UsersActions.UPDATE_BABY:
-      index = state.babies.findIndex(baby => baby.id === action.payload.id);
+      index = state.babies.findIndex(baby => baby._id === action.payload.id);
       console.log(index);
       return tassign(state,
         {
@@ -54,7 +58,7 @@ export function usersReducer(state: UsersState = INITIAL_STATE, action: any) {
           ]
         });
     case UsersActions.ADD_RATING:
-      index = state.babies.findIndex(baby => baby.id === action.payload.id);
+      index = state.babies.findIndex(baby => baby._id === action.payload.id);
       const baby = state.babies[index];
       const babyCopy = tassign(baby, { rating: [...baby.rating, action.payload.rating] });
       return tassign(state, {

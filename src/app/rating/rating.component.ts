@@ -26,7 +26,7 @@ export class RatingComponent implements OnInit, OnDestroy {
     const { value, valid } = ratingForm;
     if(valid) {
       const rating: Rating = value as Rating ;
-      this.usersActions.addRating(this.baby.id, rating);
+      this.usersActions.addRating(this.baby._id, rating);
     } else {
       alert('Invalid rating!');
     }
@@ -39,7 +39,7 @@ export class RatingComponent implements OnInit, OnDestroy {
     });
 
     this.subscription = this.ngRedux.select(state => state.users.babies).subscribe(res => {
-      this.baby = res.find(baby => baby.id === this.route.snapshot.params.id);
+      this.baby = res.find(baby => baby._id === this.route.snapshot.params.id);
       console.log(this.baby);
     })
 

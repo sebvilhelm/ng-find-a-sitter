@@ -3,28 +3,59 @@
   <div>
     <mat-form-field>
       <input matInput placeholder="Username" formControlName="userName" name="userName">
+      <mat-error class="error-message" *ngIf="registerForm.controls.userName.errors?.required && registerForm.controls.userName.touched">You must fill out First name</mat-error>
     </mat-form-field>
   </div>
   <div>
     <mat-form-field>
-      <input matInput placeholder="First name" formControlName="firstName" name="firstName">
+      <input matInput placeholder="First Name" formControlName="firstName" name="firstName">
+      <mat-error class="error-message" *ngIf="registerForm.controls.firstName.errors?.required && registerForm.controls.firstName.touched">You must fill out First name</mat-error>
     </mat-form-field>
   </div>
   <div>
     <mat-form-field>
       <input matInput placeholder="Last name" formControlName="lastName" name="lastName">
+      <mat-error class="error-message" *ngIf="registerForm.controls.lastName.errors?.required && registerForm.controls.lastName.touched">You must fill out Last name</mat-error>
     </mat-form-field>
   </div>
   <div>
     <mat-form-field>
-      <input matInput placeholder="Date of birth" type="date" formControlName="birthDate" name="birthDate">
+      <input matInput formControlName="birthDate" name="birthDate" [matDatepicker]="picker" placeholder="Choose a date of birth">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-error class="error-message" *ngIf="registerForm.controls.birthDate.errors?.required && registerForm.controls.birthDate.touched">You must fill out Birth date</mat-error>
     </mat-form-field>
   </div>
+  <div>
+    <select formControlName="typeOfUser" name="typeOfUser">
+      <option value="baby">Baby</option>
+      <option value="sitter">Sitter</option>
+    </select>
+  </div>
+  <!-- <div>
+    <mat-form-field>
+      <input matInput placeholder="Gender" formControlName="gender" name="gender">
+      <mat-error class="error-message" *ngIf="registerForm.controls.gender.errors?.required && registerForm.controls.gender.touched">You must fill out Gender</mat-error>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field>
+      <input matInput placeholder="Rate" type="number" formControlName="rate" name="rate">
+      <mat-error class="error-message" *ngIf="registerForm.controls.rate.errors?.required && registerForm.controls.rate.touched">You must fill out Rate</mat-error>
+    </mat-form-field>
+  </div>
+
   <div>
     <mat-form-field>
       <input matInput placeholder="Area" formControlName="area" name="area">
+      <mat-error class="error-message" *ngIf="registerForm.controls.area.errors?.required && registerForm.controls.area.touched">You must fill out Area</mat-error>
     </mat-form-field>
   </div>
+  <div>
+    <mat-checkbox formControlName="isAdmin" name="isAdmin">
+      I am an admin!
+    </mat-checkbox>
+  </div> -->
   <button mat-button type="submit">Submit</button>
   <button mat-button color="warn" type="button" id="btnDeleteUser" (click)="onClickDelete(user.userName)">Delete</button>
 </form>

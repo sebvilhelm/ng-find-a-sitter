@@ -37,17 +37,30 @@ export class UsersEpic {
             this.router.navigate(['/baby-list']);
             return ({
             type: UsersActions.ADD_BABY,
-            payload: result
+            payload: result._id
           })})
           .catch(error => Observable.of({
             type: UsersActions.FAILED_ADD_BABY_TO_WS,
             payload: error
           }))
       })
-
   }
 
-  // TODO: Remove baby
+  removeBaby = (action$: ActionsObservable<any>) => {
+    return action$.ofType(UsersActions.REMOVE_BABY_FROM_WS)
+      .mergeMap(({payload}) => {
+        return this.usersService.deleteBaby(payload)
+          .map((result: String) =>{
+            return ({
+            type: UsersActions.REMOVE_BABY,
+            payload: payload._id
+          })})
+          .catch(error => Observable.of({
+            type: UsersActions.FAILED_REMOVE_BABY_FROM_WS,
+            payload: error
+          }))
+      })
+  }
 
   // TODO: Update baby
 }

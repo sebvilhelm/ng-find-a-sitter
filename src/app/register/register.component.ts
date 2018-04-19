@@ -55,7 +55,7 @@ export class RegisterComponent implements OnInit {
       this.babies = res.babies;
     });
 
-    this.registerForm = this.fb.group({
+    /* this.registerForm = this.fb.group({
       userName: ['', Validators.required],
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
@@ -65,6 +65,18 @@ export class RegisterComponent implements OnInit {
       rate: [0, Validators.required],
       typeOfUser: 'baby',
       isAdmin: false
+    }); */
+
+    this.registerForm = this.fb.group({
+      userName: ['oliver', Validators.required],
+      firstName: ['Oliver', Validators.required],
+      lastName: ['Kirschberg', Validators.required],
+      birthDate: [new Date(2017,5,17), Validators.required],
+      /* area: ['Here', Validators.required],
+      gender: ['Male', Validators.required],
+      rate: [0, Validators.required],
+      typeOfUser: 'baby',
+      isAdmin: false */
     });
   }
 

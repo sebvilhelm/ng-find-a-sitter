@@ -40,7 +40,7 @@ describe('users reducer', () => {
 
   it('ADD_BABY - add a baby when there are no babies', () => {
     const babyToAdd: Baby = {
-      id: '1',
+      _id: '1',
       userName: 'oliver',
       firstName: 'Oliver',
       lastName: 'Kirschberg',
@@ -69,7 +69,7 @@ describe('users reducer', () => {
   
   it('ADD_BABY - add a baby when there are already babies', () => {
     const babyBefore: Baby = {
-      id: '1',
+      _id: '1',
       userName: 'elin',
       firstName: 'Elin',
       lastName: 'Skuladottir',
@@ -78,7 +78,7 @@ describe('users reducer', () => {
       rating: []
     };
     const babyToAdd: Baby = {
-      id: '2',
+      _id: '2',
       userName: 'oliver',
       firstName: 'Oliver',
       lastName: 'Kirschberg',
@@ -107,7 +107,7 @@ describe('users reducer', () => {
 
   it('REMOVE_BABY - remove baby from the babies array', () => {
     const babyBefore: Baby = {
-      id: '1',
+      _id: '1',
       userName: 'elin',
       firstName: 'Elin',
       lastName: 'Skuladottir',
@@ -116,7 +116,7 @@ describe('users reducer', () => {
       rating: []
     };
     const babyToRemove: Baby = {
-      id: '2',
+      _id: '2',
       userName: 'oliver',
       firstName: 'Oliver',
       lastName: 'Kirschberg',
@@ -139,13 +139,13 @@ describe('users reducer', () => {
 
     expect(usersReducer(stateBefore, {
       type: types.UsersActions.REMOVE_BABY,
-      payload: babyToRemove.id
+      payload: babyToRemove._id
     })).toEqual(stateAfter);  
   });
 
   it('UPDATE_BABY - update baby in the babies array', () => {
     const babyOne: Baby = {
-      id: '1',
+      _id: '1',
       userName: 'elin',
       firstName: 'Elin',
       lastName: 'Skuladottir',
@@ -154,7 +154,7 @@ describe('users reducer', () => {
       rating: []
     };
     const babyBefore: Baby = {
-      id: '2',
+      _id: '2',
       userName: 'oliver',
       firstName: 'Oliver',
       lastName: 'Kirschberg',
@@ -163,7 +163,7 @@ describe('users reducer', () => {
       rating: []
     };
     const babyAfter: Baby = {
-      id: '2',
+      _id: '2',
       userName: 'oliver',
       firstName: 'Oliver',
       lastName: 'Kirschberg',
@@ -196,7 +196,7 @@ describe('users reducer', () => {
       comment: 'Nice baby 💝'
     };
     const babyBefore: Baby = {
-      id: '1',
+      _id: '1',
       userName: 'oliver',
       firstName: 'Oliver',
       lastName: 'Kirschberg',
@@ -205,7 +205,7 @@ describe('users reducer', () => {
       rating: []
     };
     const babyAfter: Baby = {
-      id: '1',
+      _id: '1',
       userName: 'oliver',
       firstName: 'Oliver',
       lastName: 'Kirschberg',

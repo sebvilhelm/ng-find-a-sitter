@@ -7,10 +7,10 @@
       Username: {{baby.userName}}
     </mat-card-subtitle>
     <mat-card-actions>
-      <button routerLink="/rate/{{baby.id}}" mat-button color="primary">
+      <button routerLink="/rate/{{baby._id}}" mat-button color="primary">
         Rate ME!
       </button>
-      <button routerLink="/user-detail/{{baby.id}}" mat-button>
+      <button routerLink="/user-detail/{{baby._id}}" mat-button>
         Edit
       </button>
       <button (click)="deleteBaby()" mat-button color="warn">

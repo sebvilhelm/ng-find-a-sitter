@@ -92,6 +92,7 @@ export class AppModule {
       // Each epic is referenced here.
       this.usersEpic.getUsers,
       this.usersEpic.addBaby,
+      this.usersEpic.removeBaby,
     );
 
     let enhancers = [devTool.enhancer() ];  

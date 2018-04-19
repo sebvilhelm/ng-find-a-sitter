@@ -19,7 +19,7 @@ export class BabyListComponent implements OnInit, OnDestroy {
   constructor(private usersActions: UsersActions, private ngRedux: NgRedux<IAppState>, private usersService:UsersService) { }
 
   deleteBaby(baby: Baby){
-   this.usersActions.removeBaby(baby.id);
+   this.usersActions.removeBaby(baby);
   }
 
 
