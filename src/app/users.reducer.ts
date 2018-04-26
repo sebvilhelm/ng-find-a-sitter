@@ -47,27 +47,27 @@ export function usersReducer(state: UsersState = INITIAL_STATE, action: any) {
           ]
         });
     case UsersActions.UPDATE_BABY:
-      index = state.babies.findIndex(baby => baby._id === action.payload.id);
-      console.log(index);
+      index = state.babies.findIndex(baby => baby._id === action.payload._id);
       return tassign(state,
         {
           babies: [
             ...state.babies.slice(0,index),
-            action.payload.baby,
+            action.payload,
             ...state.babies.slice(index+1)
           ]
         });
-    case UsersActions.ADD_RATING:
-      index = state.babies.findIndex(baby => baby._id === action.payload.id);
-      const baby = state.babies[index];
-      const babyCopy = tassign(baby, { rating: [...baby.rating, action.payload.rating] });
-      return tassign(state, {
-        babies: [
-          ...state.babies.slice(0, index),
-          babyCopy,
-          ...state.babies.slice(index+1)
-        ]
-      });
+    
+    // case UsersActions.ADD_RATING:
+    //   index = state.babies.findIndex(baby => baby._id === action.payload.id);
+    //   const baby = state.babies[index];
+    //   const babyCopy = tassign(baby, { rating: [...baby.rating, action.payload.rating] });
+    //   return tassign(state, {
+    //     babies: [
+    //       ...state.babies.slice(0, index),
+    //       babyCopy,
+    //       ...state.babies.slice(index+1)
+    //     ]
+    //   });
     default:
       return state;
   }

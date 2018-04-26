@@ -7,6 +7,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 import { UsersActions } from '../users.actions';
 import { Rating } from '../entities/rating';
+import { tassign } from 'tassign';
 
 @Component({
   selector: 'app-rating',
@@ -25,8 +26,9 @@ export class RatingComponent implements OnInit, OnDestroy {
   onSubmit(ratingForm: FormGroup) {
     const { value, valid } = ratingForm;
     if(valid) {
-      const rating: Rating = value as Rating ;
-      this.usersActions.addRating(this.baby._id, rating);
+      const rating: Rating = value as Rating;
+      const newBaby = tassign(this.baby,{rating: [...this.baby.rating, rating]});
+      this.usersActions.updateBaby(newBaby);
     } else {
       alert('Invalid rating!');
     }
@@ -40,7 +42,6 @@ export class RatingComponent implements OnInit, OnDestroy {
 
     this.subscription = this.ngRedux.select(state => state.users.babies).subscribe(res => {
       this.baby = res.find(baby => baby._id === this.route.snapshot.params.id);
-      console.log(this.baby);
     })
 
   }

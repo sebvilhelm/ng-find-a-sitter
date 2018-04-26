@@ -50,7 +50,7 @@ export class UsersEpic {
     return action$.ofType(UsersActions.REMOVE_BABY_FROM_WS)
       .mergeMap(({payload}) => {
         return this.usersService.deleteBaby(payload)
-          .map((result: String) =>{
+          .map(() =>{
             return ({
             type: UsersActions.REMOVE_BABY,
             payload: payload._id
@@ -63,4 +63,20 @@ export class UsersEpic {
   }
 
   // TODO: Update baby
+  updateBaby = (action$: ActionsObservable<any>) => {
+    return action$.ofType(UsersActions.UPDATE_BABY_IN_WS)
+      .mergeMap(({payload}) => {
+        return this.usersService.updateBaby(payload)
+          .map(() => {
+            return ({
+              type: UsersActions.UPDATE_BABY,
+              payload: payload
+            })
+          })
+          .catch(error => Observable.of({
+            type: UsersActions.FAILED_UPDATE_BABY_IN_WS,
+            payload: error
+          }))
+      })
+  }
 }

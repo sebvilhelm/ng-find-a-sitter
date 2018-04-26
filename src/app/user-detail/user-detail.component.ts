@@ -25,8 +25,7 @@ export class UserDetailComponent implements OnInit, OnDestroy {
     user.birthDate = new Date(user.birthDate);
     user = tassign(this.user, user);
     
-    this.usersActions.updateBaby(this.user._id, user);
-    this.router.navigate(['/baby-list']);
+    this.usersActions.updateBaby(user);
   }
 
   onClickDelete() {
@@ -42,7 +41,6 @@ export class UserDetailComponent implements OnInit, OnDestroy {
         this.router.navigate(['/baby-list']);
         return;
       }
-
       // const birthDateString: String = this.user.birthDate.toISOString().substring(0, 10);
 /*       this.editUserForm = this.fb.group({
         userName: [this.user.userName],

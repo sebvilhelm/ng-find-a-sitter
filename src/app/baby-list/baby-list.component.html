@@ -1,6 +1,10 @@
+<label>
+  search 🕵️‍♀️
+  <input type="text" [(ngModel)]="search">
+</label>
 <ul id="babyList">
   <app-baby-item
-    *ngFor="let baby of babies"
+    *ngFor="let baby of babies | filterBabies: search"
     [baby]="baby"
     (babyDeleteClicked)="deleteBaby($event)"
   ></app-baby-item>

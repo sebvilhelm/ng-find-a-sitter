@@ -18,20 +18,24 @@ export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   isBaby: boolean;
   babies: Baby[];
-  usersActions: UsersActions
+  
 
-  constructor(private fb: FormBuilder, private router: Router, private authService: AuthService, private ngRedux: NgRedux<IAppState>, private usersService: UsersService) {
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private authService: AuthService,
+    private ngRedux: NgRedux<IAppState>,
+    private usersService: UsersService,
+    private usersActions: UsersActions
+  ) {
   }
 
   onSubmit(form) {
     if (form.valid) {
       const user = form.value;
       user.birthDate = new Date(user.birthDate);
-      if (user.typeOfUser === 'baby') {
-        const baby: Baby = user as Baby;
-        this.usersActions.addBaby(baby);
-      }
-
+      const baby: Baby = user as Baby;
+      this.usersActions.addBaby(baby);
     } else {
       // Error handling
       alert('The form is invalid!');
@@ -40,13 +44,13 @@ export class RegisterComponent implements OnInit {
 
   findAge(form) {
     /* Find current age */
-    var dob = form.value.birthDate
-    var today = new Date()
-    var birthDate = new Date(dob)
-    var age = today.getFullYear() - birthDate.getFullYear()
-    var m = today.getMonth() - birthDate.getMonth()
+    const dob = form.value.birthDate;
+    const today = new Date();
+    const birthDate = new Date(dob);
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const m = today.getMonth() - birthDate.getMonth();
     if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-      age--
+      age--;
     }
   }
 
@@ -72,12 +76,7 @@ export class RegisterComponent implements OnInit {
       userName: ['oliver', Validators.required],
       firstName: ['Oliver', Validators.required],
       lastName: ['Kirschberg', Validators.required],
-      birthDate: [new Date(2017,5,17), Validators.required],
-      /* area: ['Here', Validators.required],
-      gender: ['Male', Validators.required],
-      rate: [0, Validators.required],
-      typeOfUser: 'baby',
-      isAdmin: false */
+      birthDate: [new Date(2017, 5, 17), Validators.required],
     });
   }
 

@@ -14,6 +14,8 @@ export class UsersActions {
   static FAILED_RECEIVED_USERS: string = 'FAILED_RECEIVED_USERS';
   static ADD_BABY: string = 'ADD_BABY';
   static REMOVE_BABY: string = 'REMOVE_BABY';
+  static UPDATE_BABY_IN_WS: string = 'UPDATE_BABY_IN_WS';
+  static FAILED_UPDATE_BABY_IN_WS: string = 'FAILED_UPDATE_BABY_IN_WS';
   static UPDATE_BABY: string = 'UPDATE_BABY';
   static ADD_RATING: string = 'ADD_RATING';
   static ADD_BABY_TO_WS: string = 'ADD_BABY_TO_WS';
@@ -48,17 +50,10 @@ export class UsersActions {
     });
   }
 
-  updateBaby(id: String, baby: Baby): void {
+  updateBaby(baby: Baby): void {
     this.ngRedux.dispatch({
-      type: UsersActions.UPDATE_BABY,
-      payload: {id, baby}
-    });
-  }
-
-  addRating(id: String, rating: Rating): void {
-    this.ngRedux.dispatch({
-      type: UsersActions.ADD_RATING,
-      payload: { id, rating }
+      type: UsersActions.UPDATE_BABY_IN_WS,
+      payload: baby
     });
   }
 }

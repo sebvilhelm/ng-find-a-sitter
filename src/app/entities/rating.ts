@@ -1,4 +1,4 @@
 export class Rating {
-  public rating: Number;
-  public comment: String;
+  public rating: number;
+  public comment: string;
 }

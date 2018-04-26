@@ -6,7 +6,7 @@ import { AuthService } from './auth.service';
 import { AuthGuardService } from './auth-guard.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatInputModule } from '@angular/material/input';
@@ -38,6 +38,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { createEpicMiddleware, combineEpics } from "redux-observable";
 import { createLogger } from 'redux-logger';
 import { UsersEpic } from './users.epic';
+import { FilterBabies } from './pipes/filter.babies';
 
 @NgModule({
   declarations: [
@@ -50,9 +51,11 @@ import { UsersEpic } from './users.epic';
     BabyListComponent,
     UserDetailComponent,
     BabyItemComponent,
-    RatingComponent
+    RatingComponent,
+    FilterBabies
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
@@ -92,6 +95,7 @@ export class AppModule {
       this.usersEpic.getUsers,
       this.usersEpic.addBaby,
       this.usersEpic.removeBaby,
+      this.usersEpic.updateBaby,
     );
 
     let enhancers = [devTool.enhancer() ];  
