@@ -10,7 +10,7 @@ export class BabyItemComponent implements OnInit {
   @Input() baby: Baby;
   @Output() babyDeleteClicked: EventEmitter<any> = new EventEmitter<any>();
 
-  averageRating: Number;
+  averageRating: Number = 0;
 
   constructor() { }
 
@@ -20,7 +20,7 @@ export class BabyItemComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.averageRating = this.baby.rating.reduce((sum, rating) => sum + rating.rating , 0) / this.baby.rating.length ;
+    if(this.baby.rating.length > 0) this.averageRating = this.baby.rating.reduce((sum, rating) => sum + rating.rating , 0) / this.baby.rating.length ;
   }
 
 }

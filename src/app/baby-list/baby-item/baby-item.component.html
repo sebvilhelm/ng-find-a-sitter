@@ -4,7 +4,8 @@
       {{baby.firstName}} {{baby.lastName}}
     </mat-card-title>
     <mat-card-subtitle>
-      Username: {{baby.userName}}
+      <p>Username: {{baby.userName}}</p>
+      <p>Avg. rating: {{averageRating | number:'1.0-0'}}</p>
     </mat-card-subtitle>
     <mat-card-actions>
       <button routerLink="/rate/{{baby._id}}" mat-button color="primary">
