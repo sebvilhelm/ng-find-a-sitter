@@ -1,9 +1,4 @@
-import { UsersService } from './users.service';
-import { BabyItemComponent } from './baby-list/baby-item/baby-item.component';
-import { DataService } from './data.service';
-import { AdminGuardService } from './admin-guard.service';
-import { AuthService } from './auth.service';
-import { AuthGuardService } from './auth-guard.service';
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
@@ -18,6 +13,13 @@ import { MatSelectModule } from '@angular/material/select';
 import {MatRadioModule} from '@angular/material/radio';
 
 import { AppRoutingModule } from './app-routing.module';
+
+import { UsersService } from './users.service';
+import { BabyItemComponent } from './baby-list/baby-item/baby-item.component';
+import { DataService } from './data.service';
+import { AdminGuardService } from './admin-guard.service';
+import { AuthService } from './auth.service';
+import { AuthGuardService } from './auth-guard.service';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
